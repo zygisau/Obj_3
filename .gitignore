@@ -33,3 +33,6 @@
 
 # Visual Studio Code
 /.vscode
+
+# CLion trash files
+/.idea
