@@ -1,85 +1,111 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
+#include <algorithm>
+#include <cmath>
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
+using std::sort;
 
-struct mokinys {
-    string vardas;
-    string pavarde;
-    int *paz=nullptr;
-    int egz=0;
-    float vid=0;
+struct student {
+    string name = "Vardas";
+    string surname = "Pavardė";
+    int *grades=nullptr;
+    int exam=0;
     double galutinis=0;
-    float mediana=0;
-    int n=0;
-    void paz_ived() {
-        paz = new int [n];
-        for (int i=0; i<n; i++) {
+    int numberOfGrades=0;
+    void getGrades() {
+        grades = new int [numberOfGrades];
+        for (int i=0; i<numberOfGrades; i++) {
             cout << "Pazymys: ";
-            cin >> paz[i];
+            cin >> grades[i];
         }
     }
-    void galutinio_sk() {
-        int suma = 0;
-        for (int i=0; i<n; i++) {
-            suma += paz[i];
+    float getAverage() {
+        int sum = 0;
+        float average;
+        for (int i=0; i<numberOfGrades; i++) {
+            sum += grades[i];
         }
-        vid = (float)suma/n;
-        galutinis = 0.4 * vid + 0.6 * (double)egz;
-        sort();
-        int sk = n/2;
-        if (n % 2 == 0) {
-            mediana = (float)(paz[sk] + paz[--sk])/2;
+        average = (float)sum/numberOfGrades;
+        return average;
+    }
+    float getMedian() {
+        sort(grades, grades + numberOfGrades - 1);
+        float median;
+        int middleIndex = numberOfGrades/2;
+        if (numberOfGrades % 2 == 0) {
+            median = (float)(grades[middleIndex] + grades[--middleIndex])/2;
         } else {
-            mediana = paz[--sk];
+            median = grades[--middleIndex];
         }
+        return median;
     }
-    void sort() {
-        for (int i=0; i<n-1; i++) {
-            for (int j=i+1; j<n; j++) {
-                if (paz[i]>paz[j]) std::swap(paz[i], paz[j]);
-            }
+    void getGalutinis(const string& param) {
+        float multiplier;
+        if (param == "v" || param == "vi" || param == "vid") {
+            multiplier = getAverage();
+        } else {
+            multiplier = getMedian();
         }
+        galutinis = 0.4 * multiplier + 0.6 * exam;
     }
 };
 //
+void wasStringGivenInsteadInt(int &param) {
+    while (cin.fail()) {
+        cout << "Pažymys neįrašytas. Prašome įrašyti pažymį: ";
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin >> param;
+    }
+}
 //
 int main() {
     int sk;
-    cout << "Kiek mokiniu ivedinesite: ";
+    cout << "Kiek mokinių įvedinėsite: ";
     cin >> sk;
-    mokinys *mok = new mokinys[sk];
-    for (int i=0; i<sk; i++) {
-        cout << "Iveskite mokinio varda: ";
-        cin >> mok[i].vardas;
-        cout << "Iveskite mokinio pavarde: ";
-        cin >> mok[i].pavarde;
-        cout << "Kiek pazymiu ivesite: ";
-        cin >> mok[i].n;
-        cout << "Iveskite pazymius" << endl;
-        mok[i].paz_ived();
-        cout << "Koks mokinio egzamino pazymys: ";
-        cin >> mok[i].egz;
-        mok[i].galutinio_sk();
+    while (cin.fail()) {
+        cout << "Įvestas ne skaičius. Įveskite, kiek mokinių įvedinėsite: ";
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin >> sk;
     }
-    cout << "Norite matyti galutini pazymi kaip vidurki (vid) ar mediana (med)? ";
-    string pateiktis;
-    cin >> pateiktis;
+    student *stud = new student[sk];
+    for (int i=0; i<sk; i++) {
+        cout << "Įveskite mokinio vardą: ";
+        cin >> stud[i].name;
+        cout << "Įveskite mokinio pavardę: ";
+        cin >> stud[i].surname;
+        cout << "Kiek pažymių įvesite: ";
+        cin >> stud[i].numberOfGrades;
+        wasStringGivenInsteadInt(stud[i].numberOfGrades);
+        cout << "Įveskite pažymius" << endl;
+        stud[i].getGrades();
+        cout << "Koks mokinio egzamino pažymys: ";
+        cin >> stud[i].exam;
+    }
+    cout << "Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)? ";
+    string choose;
+    cin >> choose;
+    while (choose !="v" && choose != "vi" && choose != "vid" && choose != "m" && choose != "me" && choose != "med") {
+        cout << choose << endl;
+        cout << "Netinkamas parametras. Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)?";
+        cin.clear();
+        cin.ignore();
+        cin >> choose;
+    }
+    for (int i = 0; i < sk; i++) {
+        stud[i].getGalutinis(choose);
+    }
     cout << endl;
-    if (pateiktis == "v" || pateiktis == "vi" || pateiktis == "vid") {
+    if (choose == "v" || choose == "vi" || choose == "vid") {
         cout << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(20) << "Galutinis (Vid.)" << endl;
-        for (int i = 0; i < 60; i++) cout << "-";
-        cout << endl;
-        for (int i = 0; i < sk; i++) {
-            cout << setw(20) << mok[i].vardas << setw(20) << mok[i].pavarde << setw(20) << setprecision(2) << fixed
-                 << mok[i].galutinis << endl;
-        }
-    } else if (pateiktis == "m" || pateiktis == "me" || pateiktis == "med") {
-        cout << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(20) << "Galutinis(Mod.)" << endl;
-        for (int i=0; i<80; i++) cout << "-";
-        cout << endl;
-        for (int i=0; i<sk; i++) {
-            cout  << setw(20) << mok[i].vardas << setw(20) << mok[i].pavarde << setw(20) << setprecision(2) << fixed << mok[i].mediana << endl;
-        }
+    } else {
+        cout << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(20) << "Galutinis (Med.)" << endl;
+    }
+    for (int i = 0; i < 60; i++) cout << "-"; // Need rework
+    cout << endl;
+    for (int i = 0; i < sk; i++) {
+        cout << setw(20) << stud[i].name << setw(20) << stud[i].surname << setw(20) << setprecision(2) << fixed << stud[i].galutinis << endl;
     }
 }
