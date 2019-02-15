@@ -4,8 +4,8 @@
 #include <algorithm>
 #include <cmath>
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
-using std::sort;
-
+using std::sort; using std::stoi;
+void wasStringGivenInsteadInt(int &param);
 struct student {
     string name = "Vardas";
     string surname = "Pavardė";
@@ -16,8 +16,15 @@ struct student {
     void getGrades() {
         grades = new int [numberOfGrades];
         for (int i=0; i<numberOfGrades; i++) {
-            cout << "Pazymys: ";
+            cout << "Pažymys: ";
             cin >> grades[i];
+            wasStringGivenInsteadInt(grades[i]);
+            while(grades[i] > 10) {
+                cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
+                cout << "Pažymys: ";
+                cin >> grades[i];
+                wasStringGivenInsteadInt(grades[i]);
+            }
         }
     }
     float getAverage() {
@@ -53,29 +60,32 @@ struct student {
 //
 void wasStringGivenInsteadInt(int &param) {
     while (cin.fail()) {
-        cout << "Pažymys neįrašytas. Prašome įrašyti pažymį: ";
+        cout << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: ";
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         cin >> param;
     }
 }
+void compareStrings(int& base, string& string) {
+    if (base < string.size()) {
+        base = string.size();
+    }
+}
 //
 int main() {
+    int maxString = 0;
     int sk;
     cout << "Kiek mokinių įvedinėsite: ";
     cin >> sk;
-    while (cin.fail()) {
-        cout << "Įvestas ne skaičius. Įveskite, kiek mokinių įvedinėsite: ";
-        cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        cin >> sk;
-    }
+    wasStringGivenInsteadInt(sk);
     student *stud = new student[sk];
     for (int i=0; i<sk; i++) {
         cout << "Įveskite mokinio vardą: ";
         cin >> stud[i].name;
+        compareStrings(maxString, stud[i].name);
         cout << "Įveskite mokinio pavardę: ";
         cin >> stud[i].surname;
+        compareStrings(maxString, stud[i].surname);
         cout << "Kiek pažymių įvesite: ";
         cin >> stud[i].numberOfGrades;
         wasStringGivenInsteadInt(stud[i].numberOfGrades);
@@ -83,6 +93,7 @@ int main() {
         stud[i].getGrades();
         cout << "Koks mokinio egzamino pažymys: ";
         cin >> stud[i].exam;
+        wasStringGivenInsteadInt(stud[i].exam);
     }
     cout << "Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)? ";
     string choose;
@@ -98,14 +109,15 @@ int main() {
         stud[i].getGalutinis(choose);
     }
     cout << endl;
+
     if (choose == "v" || choose == "vi" || choose == "vid") {
-        cout << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(20) << "Galutinis (Vid.)" << endl;
+        cout << left << setw(maxString+10) << "Vardas" << setw(maxString+10) << "Pavardė" << setw(maxString+10) << "Galutinis (Vid.)" << endl;
     } else {
-        cout << left << setw(20) << "Vardas" << setw(20) << "Pavarde" << setw(20) << "Galutinis (Med.)" << endl;
+        cout << left << setw(maxString+10) << "Vardas" << setw(maxString+10) << "Pavardė" << setw(maxString+10) << "Galutinis (Med.)" << endl;
     }
-    for (int i = 0; i < 60; i++) cout << "-"; // Need rework
+    for (int i = 0; i < 3*(maxString+10); i++) cout << "-";
     cout << endl;
     for (int i = 0; i < sk; i++) {
-        cout << setw(20) << stud[i].name << setw(20) << stud[i].surname << setw(20) << setprecision(2) << fixed << stud[i].galutinis << endl;
+        cout << setw(maxString+10) << stud[i].name << setw(maxString+10) << stud[i].surname << setw(maxString+10) << setprecision(2) << fixed << stud[i].galutinis << endl;
     }
 }

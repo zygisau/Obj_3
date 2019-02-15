@@ -36,3 +36,4 @@
 
 # CLion trash files
 /.idea
+/cmake-build-debug
