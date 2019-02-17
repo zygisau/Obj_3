@@ -6,8 +6,9 @@
 #include <vector>
 #include <random>
 #include <ctime>
+#include <fstream>
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
-using std::sort; using std::stoi; using std::vector;
+using std::sort; using std::stoi; using std::vector; using std::ifstream;
 void wasStringGivenInsteadInt(int &param);
 struct student {
     string name = "Vardas";
@@ -112,62 +113,112 @@ void printResult(const string choose, const int maxString, const int numberOfStu
         cout << setw(maxString+10) << stud[i].name << setw(maxString+10) << stud[i].surname << setw(maxString+10) << setprecision(2) << fixed << stud[i].galutinis << endl;
     }
 }
+void readFromFile() {
+    ifstream file ("kursiokai.txt");
+    file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    int ind = 0, grade;
+    char names[13];
+    vector<student> stud;
+    stud.reserve(5);
+    while(!file.eof()) {
+        stud.push_back(student());
+        file.get(names, 12);
+        stud[ind].surname = names;
+        file.get(names, 12);
+        stud[ind].name = names;
+        stud[ind].grades.reserve(5);
+        for (int i=0; i<5; i++) {
+            file >> grade;
+            stud[ind].grades.push_back(grade);
+        }
+        file.ignore();
+        ind++;
+        cout << stud[ind].name << endl;
+    }
+}
 //
 int main() {
     int maxString = 0; // Ilgiausia simbolių eilutė rezultatų spausdinimui
     int numberOfStudents, isNeededToGenerate;
-    cout << "Kiek studentų įvedinėsite: ";
-    cin >> numberOfStudents;
-    wasStringGivenInsteadInt(numberOfStudents);
-    student *stud = new student[numberOfStudents];
-    for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
-        cout << "Įveskite studento vardą: ";
-        cin >> stud[i].name;
-        compareStrings(maxString, stud[i].name); // Tikrinama įvestis, ieškomas ilgiausias žodis
-        cout << "Įveskite studento pavardę: ";
-        cin >> stud[i].surname;
-        compareStrings(maxString, stud[i].surname);
-        cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
-        cin >> isNeededToGenerate;
+    cout << "Įvedinėsite duomenis ranka ar iš failo? (1 - ranka, 0 - iš failo)";
+    int inputSelection;
+    cin >> inputSelection;
+    wasStringGivenInsteadInt(inputSelection);
+    while (inputSelection != 1 && inputSelection != 0) { // Ar įvestis tinkama
+        cout << "Įvestas skaičius neatitinka jokio pasirinkimo. Įvedinėsite duomenis ranka ar iš failo? (1 - ranka, 0 - iš failo) ";
+        cin >> inputSelection;
         cout << endl;
-        wasStringGivenInsteadInt(isNeededToGenerate);
-        while (isNeededToGenerate != 1 && isNeededToGenerate != 0) { // Ar įvestis tinkama
-            cout << "Įvestas skaičius neatitinka jokio pasirinkimo. Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
+    }
+    if (inputSelection == 1) {
+        cout << "Kiek studentų įvedinėsite: ";
+        cin >> numberOfStudents;
+        wasStringGivenInsteadInt(numberOfStudents);
+        student *stud = new student[numberOfStudents];
+        for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
+            cout << "Įveskite studento vardą: ";
+            cin >> stud[i].name;
+            compareStrings(maxString, stud[i].name); // Tikrinama įvestis, ieškomas ilgiausias žodis
+            cout << "Įveskite studento pavardę: ";
+            cin >> stud[i].surname;
+            compareStrings(maxString, stud[i].surname);
+            cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
             cin >> isNeededToGenerate;
             cout << endl;
-        }
-        if (isNeededToGenerate == 1) {
-            stud[i].generateGrades();
-        } else {
-            cout << "Įveskite pažymius" << endl;
-            stud[i].getGrades();
-            cout << "Koks studento egzamino pažymys: ";
-            cin >> stud[i].exam;
-            wasStringGivenInsteadInt(stud[i].exam);
-            while(stud[i].exam > 10) {
-                cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
-                cout << "Pažymys: ";
+            wasStringGivenInsteadInt(isNeededToGenerate);
+            while (isNeededToGenerate != 1 && isNeededToGenerate != 0) { // Ar įvestis tinkama
+                cout << "Įvestas skaičius neatitinka jokio pasirinkimo. Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
+                cin >> isNeededToGenerate;
+                cout << endl;
+            }
+            if (isNeededToGenerate == 1) {
+                stud[i].generateGrades();
+            } else {
+                cout << "Įveskite pažymius" << endl;
+                stud[i].getGrades();
+                cout << "Koks studento egzamino pažymys: ";
                 cin >> stud[i].exam;
                 wasStringGivenInsteadInt(stud[i].exam);
+                while(stud[i].exam > 10) {
+                    cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
+                    cout << "Pažymys: ";
+                    cin >> stud[i].exam;
+                    wasStringGivenInsteadInt(stud[i].exam);
+                }
             }
         }
-    }
-    cout << "Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)? ";
-    string choose;
-    cin >> choose;
-    while (choose !="v" && choose != "vi" && choose != "vid" && choose != "m" && choose != "me" && choose != "med") {
-        cout << choose << endl;
-        cout << "Netinkamas parametras. Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)?";
-        cin.clear();
-        cin.ignore();
+        cout << "Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)? ";
+        string choose;
         cin >> choose;
+        while (choose !="v" && choose != "vi" && choose != "vid" && choose != "m" && choose != "me" && choose != "med") {
+            cout << choose << endl;
+            cout << "Netinkamas parametras. Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)?";
+            cin.clear();
+            cin.ignore();
+            cin >> choose;
+        }
+        for (int i = 0; i < numberOfStudents; i++) {
+            stud[i].getGalutinis(choose);
+        }
+        cout << endl;
+        printResult(choose, maxString, numberOfStudents, stud);
+    } else {
+        readFromFile();
     }
-    for (int i = 0; i < numberOfStudents; i++) {
-        stud[i].getGalutinis(choose);
-    }
-    cout << endl;
+    // cout << "Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)? ";
+    // string choose;
+    // cin >> choose;
+    // while (choose !="v" && choose != "vi" && choose != "vid" && choose != "m" && choose != "me" && choose != "med") {
+    //     cout << choose << endl;
+    //     cout << "Netinkamas parametras. Norite, jog galutinis pažymys būtų skaičiuojamas pagal vidurkį (vid) ar medianą (med)?";
+    //     cin.clear();
+    //     cin.ignore();
+    //     cin >> choose;
+    // }
+    // for (int i = 0; i < numberOfStudents; i++) {
+    //     stud[i].getGalutinis(choose);
+    // }
+    // cout << endl;
     // Spausdinimas
-    printResult(choose, maxString, numberOfStudents, stud);
     cout << "Press enter to continue ..." << endl; 
     cin.get(); 
     return 0;
