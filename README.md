@@ -36,7 +36,7 @@ Paleisti programą galima keliais būdais.
     
    **Pridėta**
    
-   - Sukurtos dvi programos. Viena veikia, reminatis C masyvais, kita - vector.
+   - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.
    - Sukurtas makefile.
 
 [version-badge]: https://img.shields.io/badge/version-0.1-blue.svg
