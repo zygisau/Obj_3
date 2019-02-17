@@ -9,23 +9,40 @@ void wasStringGivenInsteadInt(int &param);
 struct student {
     string name = "Vardas";
     string surname = "Pavardė";
-    int *grades=nullptr;
+    int *grades = nullptr;
     int exam=0;
     double galutinis=0;
     int numberOfGrades=0;
+    void arrayPush (int *& array) {
+        int *temp = new int[numberOfGrades + 6]; // Kadangi numberOfGrades indeksas, reik pridėt +5 ir +1
+        for (int i = 0; i < numberOfGrades+1; i++) {
+            temp [i] = array [i];
+        }
+        delete[] array;
+        array = temp;
+    }
     void getGrades() {
-        grades = new int [numberOfGrades];
-        for (int i=0; i<numberOfGrades; i++) {
+        grades = new int[5];
+        string escKey;
+        numberOfGrades = -1;
+        while (escKey != "n") {
+            numberOfGrades++;
+            if (numberOfGrades%5 == 0 && numberOfGrades != 0) {
+                arrayPush(grades);
+            }
             cout << "Pažymys: ";
-            cin >> grades[i];
-            wasStringGivenInsteadInt(grades[i]);
-            while(grades[i] > 10) {
+            cin >> grades[numberOfGrades];
+            wasStringGivenInsteadInt(grades[numberOfGrades]);
+            while(grades[numberOfGrades] > 10) {
                 cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
                 cout << "Pažymys: ";
-                cin >> grades[i];
-                wasStringGivenInsteadInt(grades[i]);
+                cin >> grades[numberOfGrades];
+                wasStringGivenInsteadInt(grades[numberOfGrades]);
             }
+            cout << "Paspauskite n, kad baigtumėte įrašyti pažymius, bet ką kitą, jei norite tęsti: ";
+            cin >> escKey;
         }
+        numberOfGrades++; // Šis parametras toliau naudojamas kaip masyvo elementų skaičius, kuris turi būti didesnis nei auksčiausias masyvo elementų indeksas
     }
     float getAverage() {
         int sum = 0;
@@ -86,9 +103,6 @@ int main() {
         cout << "Įveskite mokinio pavardę: ";
         cin >> stud[i].surname;
         compareStrings(maxString, stud[i].surname);
-        cout << "Kiek pažymių įvesite: ";
-        cin >> stud[i].numberOfGrades;
-        wasStringGivenInsteadInt(stud[i].numberOfGrades);
         cout << "Įveskite pažymius" << endl;
         stud[i].getGrades();
         cout << "Koks mokinio egzamino pažymys: ";
