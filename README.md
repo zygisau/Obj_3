@@ -22,7 +22,8 @@ Paleisti programą galima keliais būdais.
 - `git clone git@github.com:zygisau/Duomenu-apdorojimas.git` <-- jei naudojate SSH key
 - `git clone https://github.com/zygisau/Duomenu-apdorojimas.git` <-- kitu atveju
 - `cd Duomenu-apdorojimas`
-- `ŠIAME COMMIT'E NĖRA`
+- `make` <-- jei norite, jog programa veiktų, naudodama VEKTORIUS
+- `make masyvas` <-- jei norite, jog programa veiktų, naudodama MASYVUS
 
 ## Versijų istorija (changelog)
    

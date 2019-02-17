@@ -168,5 +168,7 @@ int main() {
     cout << endl;
     // Spausdinimas
     printResult(choose, maxString, numberOfStudents, stud);
-    std::system("PAUSE");
+    cout << "Press enter to continue ..." << endl; 
+    cin.get(); 
+    return 0;
 }
