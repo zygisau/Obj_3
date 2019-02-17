@@ -43,7 +43,7 @@ Paleisti programą galima keliais būdais.
    
    **Koreguota**
    
-   - Sutvarkytas README.md failas.
+   - README.md faile pridėtas versijos aprašymas.
     
    **Pridėta**
    
