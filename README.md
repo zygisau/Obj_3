@@ -1,12 +1,12 @@
 # Duomenų apdorojimas
 ![version][version-badge]
 ## Programos paskirtis
-Programa simuliuoja studentų pažymių sistemą. Suvedus visus prašomus duomenis (vardą, pavardę, pažymius, egzamino pažymį ir t. t.), gaunama lentelė su studentų rezultatais.
+Programa simuliuoja studentų pažymių sistemą. Suvedus visus prašomus duomenis (vardą, pavardę, pažymius, egzamino pažymį ir t. t.) arba juos nuskaičius iš failo, gaunama lentelė su studentų rezultatais.
 Rezultatai skaičiuojami pagal formulę: 
 ```shell 
 galutinis = 0.4 * dauginamasis + 0.6 * egzaminas
 ```
-"dauginamasis" gali būti pažymių vidurkis arba mediana. Vartotojui leidžiama pasirinkti prieš rezultatų išvedimą.
+"dauginamasis" gali būti pažymių vidurkis arba mediana. Vartotojui leidžiama pasirinkti prieš rezultatų išvedimą. Nuskaitant duomenis iš failo, bus pateikti abudu atsakymai.
 
 Taip pat yra galimybė pasirinkti, jog pažymiai būtų sugeneruoti atsitiktinai.
 ### Pavyzdys
@@ -38,5 +38,16 @@ Paleisti programą galima keliais būdais.
    
    - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.
    - Sukurtas makefile.
+   
+   ### [v0.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.2) - (2019-02-17)
+   
+   **Koreguota**
+   
+   - Sutvarkytas README.md failas.
+    
+   **Pridėta**
+   
+   - Pakeista source_vektoriai.cpp programa taip, jog galima būtų duomenis kelti iš failo bei pakeistas vaizdavimo būdas.
+   - Sukurtas duomenų apie studentus failas "kursiokai.txt".
 
-[version-badge]: https://img.shields.io/badge/version-0.1-blue.svg
+[version-badge]: https://img.shields.io/badge/version-0.2-blue.svg
