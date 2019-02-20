@@ -99,8 +99,5 @@ struct student {
         exam = random(rng);
     }
 };
-// Globalūs kintamieji
-vector<student> students;
-int maxString = 0; // Ilgiausia simbolių eilutė rezultatų spausdinimui
 
 #endif

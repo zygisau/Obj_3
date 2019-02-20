@@ -1,6 +1,8 @@
 #include "menu.cpp"
 
 int main() {
-    menu();
+    vector<student> students;
+
+    menu(students);
     return 0;
 }
