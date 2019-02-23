@@ -2,7 +2,6 @@
 
 void readFromUser(const int numberOfStudents, vector<student>& students) {
     int maxString = 0; // Ilgiausia simbolių eilutė rezultatų spausdinimui
-    students.reserve((unsigned)numberOfStudents);
     for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
         students.push_back(student());
 

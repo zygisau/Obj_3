@@ -84,10 +84,16 @@ struct student {
         galutinisMedian = 0.4 * multiplier + 0.6 * exam;
     }
     void generateGrades() {
-        cout << "Kiek pažymių generuoti? ";
+        cout << "Kiek pažymių generuoti? (daugiausiai galima " << grades.max_size() << ") ";
         cin >> numberOfGrades;
         wasStringGivenInsteadInt(numberOfGrades);
-        grades.reserve(numberOfGrades);
+        try {
+            grades.reserve((unsigned)numberOfGrades);
+        } catch (const std::length_error& error) {
+            cout << "Parinktas per didelis dydis. Rezervuojama 30 pažymių vietų..." << endl;
+            grades.reserve(30);
+            numberOfGrades = 30;
+        }
         const unsigned int seed = time(0);
         std::mt19937_64 rng(seed);
         std::uniform_int_distribution<> random(1, 10);

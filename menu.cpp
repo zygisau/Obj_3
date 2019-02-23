@@ -18,10 +18,16 @@ void menu(vector<student>& students) {
     }
 
     if (inputSelection == 1) {
-        cout << "Kiek studentų įvedinėsite: ";
+        cout << "Kiek studentų įvedinėsite (didžiausia galima reikšmė - " << students.max_size() << "): ";
         cin >> numberOfStudents;
         wasStringGivenInsteadInt(numberOfStudents);
-        students.reserve((unsigned)numberOfStudents);
+        try {
+            students.reserve((unsigned)numberOfStudents);
+        } catch (const std::length_error& error) {
+            cout << "Parinktas per didelis dydis. Rezervuojama 30 studentų vietų..." << endl;
+            students.reserve(30);
+            numberOfStudents = 30;
+        }
         readFromUser(numberOfStudents, students);
     } else {
         readFromFile(students);
