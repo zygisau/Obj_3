@@ -2,7 +2,9 @@
 
 int main() {
     vector<student> students;
+    vector<student> vargsiukai;
 
-    menu(students);
+    menu(students, vargsiukai);
+
     return 0;
 }

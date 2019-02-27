@@ -1,7 +1,7 @@
 #include "functions.h"
 
-void readFromFile(vector<student> students) {
-    ifstream fd ("kursiokai.txt");
+void readFromFile(vector<student> students, vector<student> vargsiukai, const string& fileName) {
+    ifstream fd (fileName);
     students.reserve(30);
 
     string info;
@@ -30,8 +30,15 @@ void readFromFile(vector<student> students) {
 
         ind++;
     }
+    fd.close();
 
     students.shrink_to_fit();
-    
-    printResult(students, maxString);
+    sortStudents(students);
+    filterStudents(students, vargsiukai);
+
+    printToFile(students, maxString, "kietuoliai.txt");
+    printToFile(vargsiukai, maxString, "vargsiukai.txt");
+
+    students.clear();
+    vargsiukai.clear();
 }

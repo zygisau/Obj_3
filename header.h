@@ -10,6 +10,7 @@
 #include <random>
 #include <ctime>
 #include <fstream>
+#include <chrono>
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
 using std::sort; using std::stoi; using std::vector; using std::ifstream;
 
@@ -30,6 +31,7 @@ struct student {
     double galutinis=0; // Galutinis studento pažymys
     double galutinisMedian = 0;
     int numberOfGrades=0;
+    bool vargsiukas=false;
 
     void getGrades() {
         grades.reserve(5);
@@ -80,6 +82,11 @@ struct student {
         float multiplier;
         multiplier = getAverage();
         galutinis = 0.4 * multiplier + 0.6 * exam;
+
+        if (galutinis < 5.0) { // rūšiavimas į kategorijas
+            vargsiukas = true;
+        }
+
         multiplier = getMedian();
         galutinisMedian = 0.4 * multiplier + 0.6 * exam;
     }
@@ -104,6 +111,20 @@ struct student {
 //        cout << endl;
         exam = random(rng);
     }
+};
+
+class Timer { // paimta iš https://github.com/objprog/paskaitos2019/wiki/Laiko-matavimas
+private:
+    std::chrono::time_point<std::chrono::high_resolution_clock> start;
+public:
+    Timer() : start{std::chrono::high_resolution_clock::now()} {}
+    void reset() {
+        start = std::chrono::high_resolution_clock::now();
+    }
+    double elapsed() const {
+        return std::chrono::duration<double>
+                (std::chrono::high_resolution_clock::now() - start).count();
+r    }
 };
 
 #endif
