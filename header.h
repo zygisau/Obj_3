@@ -36,39 +36,40 @@ struct student {
     void getGrades() {
         grades.reserve(5);
         int input;
-        cout << "Pažymys: ";
-        cin >> input;
-        numberOfGrades = -1;
-        while (cin.good()) { // Ciklas, kol nebus įvestas simbolis n ir baigtas studentų įrašymas
-            while(input > 10) {
-                cout << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: " << endl;
-                cout << "Pažymys: ";
-                cin >> input;
-            }
-            numberOfGrades++;
-            grades.push_back(input);
-            cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        while (numberOfGrades <= 0) { // kol neirasytas nei vienas pazymys
             cout << "Pažymys: ";
-            cin >> input;
+            while (cin >> input) { // kol raso pazymius, kad nustotu, turi parasyti ne skaiciu, kas reikstu false
+                if (input <= 10) {
+                    numberOfGrades++;
+                    grades.push_back(input);
+                } else {
+                    cout << "Parametras per didelis dešimtbalei sistemai. Prašome pateikti teisingą parametrą. " << endl;
+                }
+            }
+            cin.clear();
         }
+
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         numberOfGrades++; // Šis kintamasis toliau naudojamas kaip masyvo elementų skaičius, kuris turi būti didesnis nei auksčiausias masyvo elementų indeksas
     }
+
     float getAverage() {
         int sum = 0;
         float average;
-        for ( auto &grade : grades) { // pereina per kiekvieną pažymį
-            sum += grade;
-        }
+//        for ( auto &grade : grades) { // pereina per kiekvieną pažymį
+//            sum += grade;
+//        }
+        sum = std::accumulate(grades.begin(), grades.end(), 0);
         average = (float)sum/grades.size();
         return average;
     }
     float getMedian() {
         sort(grades.begin(), grades.end());
         float median;
-        int middleIndex = (double) grades.size()/2;
+        int middleIndex = grades.size()/2;
+
         if (grades.size() == 1) {
             median = grades[0];
         } else if (grades.size() % 2 == 0) {
@@ -76,6 +77,7 @@ struct student {
         } else {
             median = grades[--middleIndex];
         }
+
         return median;
     }
     void getGalutinis() {
@@ -124,7 +126,7 @@ public:
     double elapsed() const {
         return std::chrono::duration<double>
                 (std::chrono::high_resolution_clock::now() - start).count();
-r    }
+    }
 };
 
 #endif

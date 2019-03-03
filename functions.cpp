@@ -21,16 +21,20 @@ void printResult(vector<student>students, int maxString) {
     for (int i = 0; i < 4*(maxString+20); i++) cout << "-";
     cout << endl;
     sortStudents(students);
+
+    std::streamsize prec = cout.precision();
+
     for (auto &student : students) {
-        cout << setw(maxString+20) << student.name << setw(maxString+20) << student.surname << setw(maxString+20) << setprecision(2) << fixed << student.galutinis << setw(maxString+20) << setprecision(2) << fixed << student.galutinisMedian << endl;
+        cout << setw(maxString+20) << student.name
+             << setw(maxString+20) << student.surname
+             << setw(maxString+20) << setprecision(2) << fixed << student.galutinis
+             << setw(maxString+20) << setprecision(2) << fixed << student.galutinisMedian
+             << setprecision(prec) << endl;
     }
 }
 
 void printToFile (vector<student>students, int maxString, string fileName) {
     std::ofstream file (fileName);
-//    for (auto &student : students) {
-//    student.getGalutinis();
-//    }
 
     file << left << setw(maxString+20) << "Vardas" << setw(maxString+20) << "Pavardė" << setw(maxString+20) << "Galutinis (Vid.)" << setw(maxString+20) << "Galutinis (Med.)" << endl;
     for (int i = 0; i < 4*(maxString+20); i++) {
@@ -38,8 +42,14 @@ void printToFile (vector<student>students, int maxString, string fileName) {
     }
     file << endl;
 
+    std::streamsize prec = file.precision();
+
     for (auto &student : students) {
-        file << setw(maxString + 20) << student.name << setw(maxString + 20) << student.surname << setw(maxString + 20) << setprecision(2) << fixed << student.galutinis << setw(maxString + 20) << setprecision(2) << fixed << student.galutinisMedian << endl;
+        file << setw(maxString + 20) << student.name
+             << setw(maxString + 20) << student.surname
+             << setw(maxString + 20) << setprecision(2) << fixed << student.galutinis
+             << setw(maxString + 20) << setprecision(2) << fixed << student.galutinisMedian
+             << setprecision(prec) << endl;
     }
     file.close();
 }
