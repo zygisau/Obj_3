@@ -3,9 +3,19 @@
 ## Programos paskirtis
 Programa simuliuoja studentų pažymių sistemą. 
 
-Vartotojas gali pasirinkti, ar studentus su pažymiais nuskaitys iš failo, ar ranka. Failas, į kurį vartotojas gali surašyti studentus bei jų pažymius, pavadinimu – "kursiokai.txt".
+Vartotojas gali pasirinkti, ar studentus su pažymiais nuskaitys iš failo, ar ranka.
 
-Pasirinkus įrašymą ranka, prašoma suvesti studento duomenis (vardą, pavardę, pažymius, egzamino pažymį ir t. t.). Viską užpildžius,  gaunama lentelė su studentų rezultatais.
+### Įrašymas ranka
+Pasirinkus įrašymą ranka, prašoma suvesti studento duomenis (vardą, pavardę, pažymius, egzamino pažymį ir t. t.). Viską užpildžius, į failą gaunama lentelė su studentų rezultatais.
+
+### Pažymių generavimas
+Galima pasirinkti pažymius sugeneruoti. Tokiu atveju prašoma įvesti, kiek pažymių generuoti.
+
+### Įrašymas iš failo
+Failas, į kurį vartotojas gali surašyti studentus bei jų pažymius, pavadinimu – "kursiokai.txt".
+Iš jo nuskaitomi studentai.
+
+### Rezultatai
 Rezultatai skaičiuojami pagal formulę: 
 
 ```shell 
@@ -14,6 +24,31 @@ galutinis = 0.4 * dauginamasis + 0.6 * egzaminas
 "dauginamasis" gali būti pažymių vidurkis arba mediana. Atspausdinami abudu variantai.
 
 Taip pat yra galimybė pasirinkti, jog pažymiai būtų sugeneruoti atsitiktinai.
+
+### Greičio matavimas
+Taip pat galima pasirinkti sugeneruoti failus:
+- kursiokai10.txt – turintis 10 studentų
+
+- kursiokai100.txt – turintis 100 studentų
+
+- kursiokai1000.txt – turintis 1000 studentų
+
+- kursiokai10000.txt – turintis 10000 studentų
+
+- kursiokai100000.txt – turintis 100000 studentų
+
+  Su šiais tekstiniais failais atliekama greičio analizė, naudojant [std::chrono](https://en.cppreference.com/w/cpp/chrono) biblioteką. Programai baigus darbą, į konsolę atspausdinama lentelė su laikais:
+
+```shell
+Ar norite atlikti programos veikimo greičio (spartos) analizę? (1 - taip, 0 - ne) 1
+Darbas su "kursiokai10.txt" užtruko: 0.0071854 s
+Darbas su "kursiokai100.txt" užtruko: 0.0069441 s
+Darbas su "kursiokai1000.txt" užtruko: 0.105918 s
+Darbas su "kursiokai10000.txt" užtruko: 7.94196 s
+Darbas su "kursiokai100000.txt" užtruko: 2484.67 s
+```
+(2484.67 sekundės yra ~41 minutės 😂)
+
 ### Pavyzdys
 ```shell
 Vardas       Pavardė      Galutinis (Vid.)       Galutinis (Med.)       
@@ -32,8 +67,12 @@ Paleisti programą galima keliais būdais.
 - `git clone git@github.com:zygisau/Duomenu-apdorojimas.git` <-- jei naudojate SSH key
 - `git clone https://github.com/zygisau/Duomenu-apdorojimas.git` <-- kitu atveju
 - `cd Duomenu-apdorojimas`
-- `make` <-- jei norite, jog programa veiktų, naudodama VEKTORIUS
-- `make masyvas` <-- jei norite, jog programa veiktų, naudodama MASYVUS
+- Jei leidžiate UNIX aplinkoje
+  - `make` <-- jei norite, jog programa veiktų, naudodama VEKTORIUS
+  - `make masyvas` <-- jei norite, jog programa veiktų, naudodama MASYVUS
+  - `make clean` <--jei reikia ištrinti **.o**, **.exe** failus
+  - `make cleanAll` <--jei reikia ištrinti **.o**, **.exe** BEI klasiokai\* failus išskyrus klasiokai.txt
+- Jei naudojate CMAKE, naudoti reikia CMakeLists.txt failą
 
 ## Versijų istorija (changelog)
 
@@ -71,4 +110,15 @@ Paleisti programą galima keliais būdais.
 
    - Pridėti headers failai.
 
-[version-badge]: https://img.shields.io/badge/version-0.3-blue.svg
+### [v0.4](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4) - (2019-03-03)
+
+   **Koreguota**
+
+   - Pridėta galimybė atlikti spartos analizę bei generuoti tekstinius failus.
+   - Pakoreguotas "READ_ME.md" failas.
+
+   **Pridėta**
+
+   - Pridėtas CMakeLists.txt failas.
+
+[version-badge]: https://img.shields.io/badge/version-0.4-blue.svg
