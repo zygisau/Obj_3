@@ -73,6 +73,7 @@ Paleisti programą galima keliais būdais.
   - `make clean` <--jei reikia ištrinti **.o**, **.exe** failus
   - `make cleanAll` <--jei reikia ištrinti **.o**, **.exe** BEI klasiokai\* failus išskyrus klasiokai.txt
 - Jei naudojate CMAKE, naudoti reikia CMakeLists.txt failą
+> Naudojant CMAKE, naudoti masyvus kol kas neįmanoma.
 
 ## Versijų istorija (changelog)
 
