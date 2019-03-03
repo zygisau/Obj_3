@@ -8,3 +8,6 @@ masyvas: source_masyvai.cpp
 
 clean:
 	rm *.o testVector testArray
+
+cleanAll: 
+	rm *.o testVector testArray vargsiukai.txt kietuoliai.txt
