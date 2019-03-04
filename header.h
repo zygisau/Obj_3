@@ -11,6 +11,7 @@
 #include <ctime>
 #include <fstream>
 #include <chrono>
+#include <numeric>
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
 using std::sort; using std::stoi; using std::vector; using std::ifstream;
 
@@ -58,9 +59,6 @@ struct student {
     float getAverage() {
         int sum = 0;
         float average;
-//        for ( auto &grade : grades) { // pereina per kiekvieną pažymį
-//            sum += grade;
-//        }
         sum = std::accumulate(grades.begin(), grades.end(), 0);
         average = (float)sum/grades.size();
         return average;

@@ -121,5 +121,12 @@ Paleisti programą galima keliais būdais.
    **Pridėta**
 
    - Pridėtas CMakeLists.txt failas.
+   
+### [v0.4.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4.1) - (2019-03-04)
 
-[version-badge]: https://img.shields.io/badge/version-0.4-blue.svg
+  **Koreguota**
+
+  - Pridėta biblioteka "numeric", naudojama funkcijoje. Programa veiks naudojant visus kompiliatorius.
+
+
+[version-badge]: https://img.shields.io/badge/version-0.4.1-blue.svg
