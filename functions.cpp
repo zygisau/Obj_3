@@ -8,9 +8,12 @@ bool sortByName(const student & stud1, const student & stud2) {
     return (stud1.name < stud2.name) ||
            ((stud1.name == stud2.name) && (stud1.surname > stud2.surname));
 }
-void sortStudents(vector<student>& students) {
+
+template < typename container >
+void sortStudents(container & students) {
     sort(students.begin(), students.end(), sortByName);
 }
+
 void printResult(vector<student>students, int maxString) {
     for (auto &student : students) {
         student.getGalutinis();
@@ -33,7 +36,8 @@ void printResult(vector<student>students, int maxString) {
     }
 }
 
-void printToFile (vector<student>students, int maxString, string fileName) {
+template < typename container >
+void printToFile (container students, int maxString, string fileName) {
     std::ofstream file (fileName);
 
     file << left << setw(maxString+20) << "Vardas" << setw(maxString+20) << "Pavardė" << setw(maxString+20) << "Galutinis (Vid.)" << setw(maxString+20) << "Galutinis (Med.)" << endl;
@@ -54,7 +58,8 @@ void printToFile (vector<student>students, int maxString, string fileName) {
     file.close();
 }
 
-void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
+template < typename container >
+void filterStudents (container& students, container& vargsiukai) {
     try {
         vargsiukai.reserve(50);
     } catch (const std::exception& error) {

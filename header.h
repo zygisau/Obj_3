@@ -12,8 +12,11 @@
 #include <fstream>
 #include <chrono>
 #include <numeric>
+#include <deque>
+#include <list>
+
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
-using std::sort; using std::stoi; using std::vector; using std::ifstream;
+using std::sort; using std::stoi; using std::vector; using std::ifstream; using std::list; using std::deque;
 
 void wasStringGivenInsteadInt(int &param) {
     while (cin.fail()) { // ciklas, kol bus įvestas skaičius

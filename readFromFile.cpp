@@ -1,6 +1,7 @@
 #include "functions.h"
 
-void readFromFile(vector<student> students, vector<student> vargsiukai, const string& fileName) {
+template < typename container >
+void readFromFile(container students, container vargsiukai, const string& fileName) {
     ifstream fd (fileName);
     students.reserve(30);
 
