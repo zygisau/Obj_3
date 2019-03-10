@@ -7,13 +7,15 @@ void compareStrings(int& base, const string& string);
 
 bool sortByName(const student & stud1, const student & stud2);
 
-template < typename container >
-void sortStudents(container& students);
+void sortStudents(vector<student> & students);
+void sortStudents(deque<student> & students);
+void sortStudents(list<student> & students);
 
 void printResult(vector<student>students, int maxString);
 
-template < typename container >
-void filterStudents(container& students, container& vargsiukai);
+void filterStudents (vector<student>& students, vector<student>& vargsiukai);
+void filterStudents(list<student>& students, list<student>& vargsiukai);
+void filterStudents (deque<student>& students, deque<student>& vargsiukai);
 
 void generateFile(string fileName, int size);
 

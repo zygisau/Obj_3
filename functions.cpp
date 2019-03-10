@@ -9,9 +9,16 @@ bool sortByName(const student & stud1, const student & stud2) {
            ((stud1.name == stud2.name) && (stud1.surname > stud2.surname));
 }
 
-template < typename container >
-void sortStudents(container & students) {
+void sortStudents(vector<student> & students) {
     sort(students.begin(), students.end(), sortByName);
+}
+
+void sortStudents(deque<student> & students) {
+    sort(students.begin(), students.end(), sortByName);
+}
+
+void sortStudents(list<student> & students) {
+    students.sort(sortByName);
 }
 
 void printResult(vector<student>students, int maxString) {
@@ -58,22 +65,45 @@ void printToFile (container students, int maxString, string fileName) {
     file.close();
 }
 
-template < typename container >
-void filterStudents (container& students, container& vargsiukai) {
-    try {
-        vargsiukai.reserve(50);
-    } catch (const std::exception& error) {
-        vargsiukai.reserve(10);
-    }
-    for (int i=0; i<students.size(); i++) {
-        if (students[i].vargsiukas) {
-            vargsiukai.push_back(students[i]);
-            students.erase(students.begin() + i);
-            i--;
+//template < typename container >
+//void filterStudents (container& students, container& vargsiukai) {
+//    for (auto &stud : students) {
+//        if (stud.vargsiukas) {
+//            vargsiukai.push_back(stud);
+//            students.erase(remove(students.begin(), students.end(), stud), students.end());
+//        }
+//    }
+//}
+
+void filterStudents(list<student>& students, list<student>& vargsiukai) {
+    for (list<student>::iterator it = students.begin(); it != students.end(); ++it) {
+        if ((*it).vargsiukas) {
+            vargsiukai.push_back((*it));
+            students.erase(it);
         }
     }
-    students.shrink_to_fit();
-    vargsiukai.shrink_to_fit();
+}
+
+void filterStudents (deque<student>& students, deque<student>& vargsiukai) {
+    int ind = 0;
+    for (auto &stud : students) {
+        if (stud.vargsiukas) {
+            vargsiukai.push_back(stud);
+            students.erase(students.begin() + ind);
+            ind++;
+        }
+    }
+}
+
+void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
+    int ind = 0;
+    for (auto &stud : students) {
+        if (stud.vargsiukas) {
+            vargsiukai.push_back(stud);
+            students.erase(students.begin() + ind);
+            ind++;
+        }
+    }
 }
 
 void generateFile(string fileName, int size) {

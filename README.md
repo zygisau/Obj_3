@@ -49,6 +49,103 @@ Darbas su "kursiokai100000.txt" užtruko: 2484.67 s
 ```
 (2484.67 sekundės yra ~41 minutės 😂)
 
+### Konteinerių testavimas
+
+Testuojami šie konteineriai
+
+- std::vector
+- std::list
+- std::deque
+
+#### Rezultatas
+
+```shell
+...
+Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne)
+1
+
+Pradedamas darbas naudojant vector konteinerį...
+Nuskaitymas iš failo truko: 0 s
+Studentų filtravimas (skirstymas) truko: 0 s
+įrašymas į failą truko: 0.0072953 s
+Darbas su "kursiokai10.txt" užtruko: 0.0072953 s
+
+Nuskaitymas iš failo truko: 0 s
+Studentų filtravimas (skirstymas) truko: 0 s
+įrašymas į failą truko: 0.0136461 s
+Darbas su "kursiokai100.txt" užtruko: 0.0136461 s
+
+Nuskaitymas iš failo truko: 0.0081595 s
+Studentų filtravimas (skirstymas) truko: 0.0578434 s
+įrašymas į failą truko: 0.0290793 s
+Darbas su "kursiokai1000.txt" užtruko: 0.107586 s
+
+Nuskaitymas iš failo truko: 0.123461 s
+Studentų filtravimas (skirstymas) truko: 5.53951 s
+įrašymas į failą truko: 0.0935523 s
+Darbas su "kursiokai10000.txt" užtruko: 5.75755 s
+
+Nuskaitymas iš failo truko: 0.774174 s
+Studentų filtravimas (skirstymas) truko: 809.702 s
+įrašymas į failą truko: 1.16679 s
+Darbas su "kursiokai100000.txt" užtruko: 811.673 s
+Darbas su STD::VECTOR konteineriu užtruko: 817.563 s
+
+Pradedamas darbas naudojant list konteinerį...
+Nuskaitymas iš failo truko: 0.0010365 s
+Studentų filtravimas (skirstymas) truko: 0.0010644 s
+įrašymas į failą truko: 0.0197029 s
+Darbas su "kursiokai10.txt" užtruko: 0.0246866 s
+
+Nuskaitymas iš failo truko: 0.0019967 s
+Studentų filtravimas (skirstymas) truko: 0.0006381 s
+įrašymas į failą truko: 0.0019932 s
+Darbas su "kursiokai100.txt" užtruko: 0.016478 s
+
+Nuskaitymas iš failo truko: 0.0019952 s
+Studentų filtravimas (skirstymas) truko: 0.0173109 s
+įrašymas į failą truko: 0.048476 s
+Darbas su "kursiokai1000.txt" užtruko: 0.0727771 s
+
+Nuskaitymas iš failo truko: 0.101094 s
+Studentų filtravimas (skirstymas) truko: 0.0310594 s
+įrašymas į failą truko: 0.15154 s
+Darbas su "kursiokai10000.txt" užtruko: 0.28776 s
+
+Nuskaitymas iš failo truko: 1.11357 s
+Studentų filtravimas (skirstymas) truko: 0.27484 s
+įrašymas į failą truko: 1.18493 s
+Darbas su "kursiokai100000.txt" užtruko: 2.62884 s
+Darbas su STD::LIST konteineriu užtruko: 3.03572 s
+
+Pradedamas darbas naudojant deque konteinerį...
+Nuskaitymas iš failo truko: 0.0009961 s
+Studentų filtravimas (skirstymas) truko: 0 s
+įrašymas į failą truko: 0.0180864 s
+Darbas su "kursiokai10.txt" užtruko: 0.0203142 s
+
+Nuskaitymas iš failo truko: 0.001098 s
+Studentų filtravimas (skirstymas) truko: 0 s
+įrašymas į failą truko: 0.0113803 s
+Darbas su "kursiokai100.txt" užtruko: 0.0166128 s
+
+Nuskaitymas iš failo truko: 0.0081304 s
+Studentų filtravimas (skirstymas) truko: 0.0610808 s
+įrašymas į failą truko: 0.041581 s
+Darbas su "kursiokai1000.txt" užtruko: 0.120541 s
+
+Nuskaitymas iš failo truko: 0.102246 s
+Studentų filtravimas (skirstymas) truko: 4.25611 s
+įrašymas į failą truko: 0.161089 s
+Darbas su "kursiokai10000.txt" užtruko: 4.52806 s
+
+Nuskaitymas iš failo truko: 1.15949 s
+Studentų filtravimas (skirstymas) truko: 423.546 s
+įrašymas į failą truko: 1.28583 s
+Darbas su "kursiokai100000.txt" užtruko: 426.042 s
+Darbas su STD::DEQUE konteineriu užtruko: 430.734 s
+```
+
 ### Pavyzdys
 ```shell
 Vardas       Pavardė      Galutinis (Vid.)       Galutinis (Med.)       
@@ -121,12 +218,22 @@ Paleisti programą galima keliais būdais.
    **Pridėta**
 
    - Pridėtas CMakeLists.txt failas.
-   
+
 ### [v0.4.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4.1) - (2019-03-04)
 
   **Koreguota**
 
   - Pridėta biblioteka "numeric", naudojama funkcijoje. Programa veiks naudojant visus kompiliatorius.
 
+### [v0.5](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5) - (2019-03-03)
 
-[version-badge]: https://img.shields.io/badge/version-0.4.1-blue.svg
+   **Koreguota**
+
+- Pakoreguotas "READ_ME.md" failas.
+
+   **Pridėta**
+
+- Pridėtas konteinerių testavimas.
+
+
+[version-badge]: https://img.shields.io/badge/version-0.5-purple.svg
