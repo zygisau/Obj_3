@@ -225,7 +225,7 @@ Paleisti programą galima keliais būdais.
 
   - Pridėta biblioteka "numeric", naudojama funkcijoje. Programa veiks naudojant visus kompiliatorius.
 
-### [v0.5](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5) - (2019-03-03)
+### [v0.5](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5) - (2019-03-11)
 
    **Koreguota**
 
