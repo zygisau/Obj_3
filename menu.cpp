@@ -83,7 +83,7 @@ void menu() {
         cout << endl;
     }
 
-    cout << "Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne)" << endl;
+    cout << "Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne) ";
     cin >> inputSelection;
     wasStringGivenInsteadInt(inputSelection);
     while (inputSelection != 1 && inputSelection != 0) { // Ar įvestis tinkama

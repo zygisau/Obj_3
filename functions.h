@@ -2,7 +2,8 @@
 
 #define FUNCTIONS_H
 
-//void speedTest(vector<student> students, vector<student> vargsiukai);
+int checkGrade(string &param, const string& message);
+void checkGradesCount(vector<student>& grades, const string& fname, const string& lname);
 void compareStrings(int& base, const string& string);
 
 bool sortByName(const student & stud1, const student & stud2);

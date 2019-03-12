@@ -65,16 +65,6 @@ void printToFile (container students, int maxString, string fileName) {
     file.close();
 }
 
-//template < typename container >
-//void filterStudents (container& students, container& vargsiukai) {
-//    for (auto &stud : students) {
-//        if (stud.vargsiukas) {
-//            vargsiukai.push_back(stud);
-//            students.erase(remove(students.begin(), students.end(), stud), students.end());
-//        }
-//    }
-//}
-
 void filterStudents(list<student>& students, list<student>& vargsiukai) {
     for (list<student>::iterator it = students.begin(); it != students.end(); ++it) {
         if ((*it).vargsiukas) {
@@ -124,4 +114,47 @@ void generateFile(string fileName, int size) {
     cout << "BAIGTA" << endl;
 
     file.close();
+}
+
+int checkGrade(string &param, const string& message) {
+    int paramInt;
+    try {
+        paramInt = std::stoi(param);
+
+        while(paramInt > 10) { // Ar atitinka dešimtbalę sistemą?
+            cout << message << endl;
+            cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
+            cout << "Pažymys: ";
+            cin >> paramInt;
+            wasStringGivenInsteadInt(paramInt);
+        }
+    } catch (const std::invalid_argument & e) {
+        cout << message;
+        cin >> paramInt;
+        wasStringGivenInsteadInt(paramInt);
+
+        while(paramInt > 10) { // Ar atitinka dešimtbalę sistemą?
+            cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
+            cout << "Pažymys: ";
+            cin >> paramInt;
+            wasStringGivenInsteadInt(paramInt);
+        }
+    }
+    return paramInt;
+}
+
+void checkGradesCount(vector<student>& grades, const string& fname, const string& lname) {
+    int grade;
+    if (grades.size() == 1) {
+        cout << "Studentui " << fname << " " << lname << "trūksta pažymių, įrašykite dar egzamino pažymį. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
+        cin >> grade;
+        wasStringGivenInsteadInt(grade);
+        while(grade > 10) { // Ar atitinka dešimtbalę sistemą?
+            cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
+            cout << "Pažymys: ";
+            cin >> grade;
+            wasStringGivenInsteadInt(grade);
+        }
+        grades.push_back(grade);
+    }
 }

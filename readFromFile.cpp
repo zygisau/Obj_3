@@ -6,8 +6,14 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
     Timer timer;
     ifstream fd (fileName);
 
+    if (fd.fail()) {
+        cout << "Įvyko klaida atidarant duomenų failą. Prašome įsitikinti, ar failas tinkamoje direktorijoje." << endl;
+        exit(EXIT_FAILURE);
+    }
+
     string info, fname, lname;;
     int ind = 0, gradeInt, maxString = 0;
+    string gradeStr, message;
     std::getline(fd, info);
 
     while (std::getline(fd, info)) {
@@ -15,18 +21,21 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
 
         vector <int> grade;
 
-        reading >> fname;
+        reading >> lname;
         compareStrings(maxString, fname);
 
-        reading >> lname;
+        reading >> fname;
         compareStrings(maxString, lname);
 
+        message = "Pažymys studentui " + fname + " " + lname + " neįrašytas. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
+
         while (reading) {
-            reading >> gradeInt;
+            reading >> gradeStr;
+            gradeInt = checkGrade(gradeStr, message);
             grade.push_back(gradeInt);
         }
+        checkGradesCount(grade, fname, lname);
         students.push_back(student()); //emplace_back
-//        auto<student>::iterator it = students.back();
         student *studentPtr = &students.back();
         (*studentPtr).name = lname;
         (*studentPtr).name = fname;
