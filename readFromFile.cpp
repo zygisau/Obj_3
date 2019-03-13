@@ -29,7 +29,7 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
 
         message = "Pažymys studentui " + fname + " " + lname + " neįrašytas. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
 
-        while (reading) {
+        while (!reading.eof()) {
             reading >> gradeStr;
             gradeInt = checkGrade(gradeStr, message);
             grade.push_back(gradeInt);

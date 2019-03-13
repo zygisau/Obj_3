@@ -143,10 +143,10 @@ int checkGrade(string &param, const string& message) {
     return paramInt;
 }
 
-void checkGradesCount(vector<student>& grades, const string& fname, const string& lname) {
+void checkGradesCount(vector<int>& grades, const string& fname, const string& lname) {
     int grade;
     if (grades.size() == 1) {
-        cout << "Studentui " << fname << " " << lname << "trūksta pažymių, įrašykite dar egzamino pažymį. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
+        cout << "Studentui " << fname << " " << lname << " trūksta pažymių, įrašykite dar egzamino pažymį. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
         cin >> grade;
         wasStringGivenInsteadInt(grade);
         while(grade > 10) { // Ar atitinka dešimtbalę sistemą?
