@@ -235,5 +235,9 @@ Paleisti programą galima keliais būdais.
 
 - Pridėtas konteinerių testavimas.
 
+### [v0.5.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5.1) - (2019-03-13)
+
+   **Koreguota**
+- Pridėta apsauga, jei duomenų faile būtų pateiktas ne skaičius arba per mažai pažymių.
 
 [version-badge]: https://img.shields.io/badge/version-0.5-purple.svg
