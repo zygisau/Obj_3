@@ -240,4 +240,4 @@ Paleisti programą galima keliais būdais.
    **Koreguota**
 - Pridėta apsauga, jei duomenų faile būtų pateiktas ne skaičius arba per mažai pažymių.
 
-[version-badge]: https://img.shields.io/badge/version-0.5-purple.svg
+[version-badge]: https://img.shields.io/badge/version-0.5.1-purple.svg
