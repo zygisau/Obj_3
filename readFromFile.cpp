@@ -2,7 +2,7 @@
 #include "functions.h"
 
 template < typename container >
-void readFromFile(container students, container vargsiukai, const string& fileName) {
+void readFromFile(container students, container vargsiukai, const string& fileName, bool strat1) {
     Timer timer;
     ifstream fd (fileName);
 
@@ -51,14 +51,29 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
 //    students.shrink_to_fit(); //
     timer.reset();
     sortStudents(students);
-    filterStudents(students, vargsiukai);
-    cout << "Studentų filtravimas (skirstymas) truko: " << timer.elapsed() << " s" << endl;
+    if (strat1) {
+        container kietiakai;
+        filterStudentsStrat1(students, vargsiukai, kietiakai);
+        cout << "Studentų filtravimas (skirstymas) truko: " << timer.elapsed() << " s" << endl;
 
-    timer.reset();
-    printToFile(students, maxString, "kietuoliai.txt");
-    printToFile(vargsiukai, maxString, "vargsiukai.txt");
-    cout << "Įrašymas į failą truko: " << timer.elapsed() << " s" << endl;
+        timer.reset();
+        printToFile(kietiakai, maxString, "kietuoliai.txt");
+        printToFile(vargsiukai, maxString, "vargsiukai.txt");
+        cout << "Įrašymas į failą truko: " << timer.elapsed() << " s" << endl;
 
-    students.clear();
-    vargsiukai.clear();
+        students.clear();
+        kietiakai.clear();
+        vargsiukai.clear();
+    } else {
+        filterStudents(students, vargsiukai);
+        cout << "Studentų filtravimas (skirstymas) truko: " << timer.elapsed() << " s" << endl;
+
+        timer.reset();
+        printToFile(students, maxString, "kietuoliai.txt");
+        printToFile(vargsiukai, maxString, "vargsiukai.txt");
+        cout << "Įrašymas į failą truko: " << timer.elapsed() << " s" << endl;
+
+        students.clear();
+        vargsiukai.clear();
+    }
 }

@@ -1,46 +1,49 @@
+#include <docobjectservice.h>
 #include "header.h"
 #include "functions.h"
 #include "readFromFile.cpp"
 #include "readFromUser.cpp"
 //
 template < typename container >
-void speedTest(container & students, container & vargsiukai) {
+void speedTest(container & students, container & vargsiukai, bool strat1) {
     cout.flush();
     Timer t;
-    readFromFile(students, vargsiukai, "kursiokai10.txt");
+    readFromFile(students, vargsiukai, "kursiokai10.txt", strat1);
     cout << "Darbas su \"kursiokai10.txt\" užtruko: " << t.elapsed() << " s" << endl;
 
     cout << endl;
 
     t.reset();
-    readFromFile(students, vargsiukai, "kursiokai100.txt");
+    readFromFile(students, vargsiukai, "kursiokai100.txt", strat1);
     cout << "Darbas su \"kursiokai100.txt\" užtruko: " << t.elapsed() << " s" << endl;
 
     cout << endl;
 
     t.reset();
-    readFromFile(students, vargsiukai, "kursiokai1000.txt");
+    readFromFile(students, vargsiukai, "kursiokai1000.txt", strat1);
     cout << "Darbas su \"kursiokai1000.txt\" užtruko: " << t.elapsed() << " s" << endl;
 
     cout << endl;
 
     t.reset();
-    readFromFile(students, vargsiukai, "kursiokai10000.txt");
+    readFromFile(students, vargsiukai, "kursiokai10000.txt", strat1);
     cout << "Darbas su \"kursiokai10000.txt\" užtruko: " << t.elapsed() << " s" << endl;
 
     cout << endl;
 
     t.reset();
-    readFromFile(students, vargsiukai, "kursiokai100000.txt");
+    readFromFile(students, vargsiukai, "kursiokai100000.txt", strat1);
     cout << "Darbas su \"kursiokai100000.txt\" užtruko: " << t.elapsed() << " s" << endl;
 }
 
 void containerTest() {
+    cout << "Startegija 2" << endl << endl;
+
     cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
     Timer t;
     vector<student> students;
     vector<student> vargsiukai;
-    speedTest(students, vargsiukai);
+    speedTest(students, vargsiukai, false);
     cout << "Darbas su STD::VECTOR konteineriu užtruko: " << t.elapsed() << " s" << endl;
 
     cout << endl;
@@ -49,7 +52,7 @@ void containerTest() {
     t.reset();
     list<student> studentsList;
     list<student> vargsiukaiList;
-    speedTest(studentsList, vargsiukaiList);
+    speedTest(studentsList, vargsiukaiList, false);
     cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
 
     cout << endl;
@@ -58,7 +61,36 @@ void containerTest() {
     t.reset();
     deque<student> studentsDeque;
     deque<student> vargsiukaiDeque;
-    speedTest(studentsDeque, vargsiukaiDeque);
+    speedTest(studentsDeque, vargsiukaiDeque, false);
+    cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
+}
+
+void containerTestBadStrat() {
+    cout << "Startegija 1" << endl << endl;
+
+    cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
+    Timer t;
+    vector<student> students;
+    vector<student> vargsiukai;
+    speedTest(students, vargsiukai, true);
+    cout << "Darbas su STD::VECTOR konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
+    t.reset();
+    list<student> studentsList;
+    list<student> vargsiukaiList;
+    speedTest(studentsList, vargsiukaiList, true);
+    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
+    t.reset();
+    deque<student> studentsDeque;
+    deque<student> vargsiukaiDeque;
+    speedTest(studentsDeque, vargsiukaiDeque, true);
     cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
 }
 //
@@ -135,9 +167,24 @@ void menu() {
         }
 
         if (inputSelection == 1) {
-            speedTest(students, vargsiukai);
+            cout << "Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 2-ne): ";
+            cin >> inputSelection;
+            wasStringGivenInsteadInt(inputSelection);
+
+            while (inputSelection != 1 && inputSelection != 0) { // Ar įvestis tinkama
+                cout << "Netinkama įvestis. Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 2-ne): ";
+                cin >> inputSelection;
+                cout << endl;
+            }
+
+            if (inputSelection == 1) {
+                containerTestBadStrat();
+                containerTest();
+            } else  {
+                speedTest(students, vargsiukai, false);
+            }
         } else {
-            readFromFile(students, vargsiukai, "kursiokai.txt");
+            readFromFile(students, vargsiukai, "kursiokai.txt", false);
         }
     }
     cout << endl << "Press enter to continue ..." << endl;

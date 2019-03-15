@@ -96,6 +96,40 @@ void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
     }
 }
 
+void filterStudentsStrat1 (list<student>& students, list<student>& vargsiukai, list<student>& kietiakai) {
+    for (list<student>::iterator it = students.begin(); it != students.end(); ++it) {
+        if ((*it).vargsiukas) {
+            vargsiukai.push_back((*it));
+        } else {
+            kietiakai.push_back((*it));
+        }
+    }
+}
+
+void filterStudentsStrat1 (deque<student>& students, deque<student>& vargsiukai, deque<student>& kietiakai) {
+    int ind = 0;
+    for (auto &stud : students) {
+        if (stud.vargsiukas) {
+            vargsiukai.push_back(stud);
+        } else {
+            kietiakai.push_back(stud);
+        }
+        ind++;
+    }
+}
+
+void filterStudentsStrat1 (vector<student>& students, vector<student>& vargsiukai, vector<student>& kietiakai) {
+    int ind = 0;
+    for (auto &stud : students) {
+        if (stud.vargsiukas) {
+            vargsiukai.push_back(stud);
+        } else {
+            kietiakai.push_back(stud);
+        }
+        ind++;
+    }
+}
+
 void generateFile(string fileName, int size) {
     const unsigned int seed = time(0);
     std::mt19937_64 rng(seed);

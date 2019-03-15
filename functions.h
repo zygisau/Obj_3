@@ -18,6 +18,11 @@ void filterStudents (vector<student>& students, vector<student>& vargsiukai);
 void filterStudents(list<student>& students, list<student>& vargsiukai);
 void filterStudents (deque<student>& students, deque<student>& vargsiukai);
 
+void filterStudentsStrat1 (list<student>& students, list<student>& vargsiukai, list<student>& kietiakai);
+void filterStudentsStrat1 (deque<student>& students, deque<student>& vargsiukai, deque<student>& kietiakai);
+void filterStudentsStrat1 (vector<student>& students, vector<student>& vargsiukai, vector<student>& kietiakai);
+
+
 void generateFile(string fileName, int size);
 
 template < typename container >
