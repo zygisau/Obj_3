@@ -108,11 +108,14 @@ struct student {
         const unsigned int seed = time(0);
         std::mt19937_64 rng(seed);
         std::uniform_int_distribution<> random(1, 10);
+//        grades.resize(numberOfGrades);
+//        generate(grades.begin(), grades.end(), [random, rng] (auto random, auto rng) -> int {
+//            return random(rng);
+//        });
         for (int i=0; i<numberOfGrades; i++) { // pereina per kiekvieną pažymį
             grades.push_back(random(rng));
-//            cout << grades[i] << " ";
         }
-//        cout << endl;
+
         exam = random(rng);
     }
 };

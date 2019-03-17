@@ -5,6 +5,7 @@
 int checkGrade(string &param, const string& message);
 void checkGradesCount(vector<int>& grades, const string& fname, const string& lname);
 void compareStrings(int& base, const string& string);
+void checkIfBinary (int& input, const string& message);
 
 bool sortByName(const student & stud1, const student & stud2);
 

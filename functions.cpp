@@ -4,6 +4,15 @@ void compareStrings(int& base, const string& string) {
         base = string.size();
     }
 }
+
+void checkIfBinary (int& input, const string& message) {
+    while (input != 1 && input != 0) { // Ar įvestis tinkama
+        cout << message;
+        cin >> input;
+        cout << endl;
+    }
+}
+
 bool sortByName(const student & stud1, const student & stud2) {
     return (stud1.name < stud2.name) ||
            ((stud1.name == stud2.name) && (stud1.surname > stud2.surname));
@@ -87,6 +96,15 @@ void filterStudents (deque<student>& students, deque<student>& vargsiukai) {
 
 void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
     int ind = 0;
+
+//    auto bound = std::stable_partition(students.begin(), students.end(),
+//                                   [&](const auto& x) { return !(x.vargsiukas); });
+//
+//    vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
+//                  std::make_move_iterator(students.end()));
+//
+//    students.erase(bound, students.end());
+
     for (auto &stud : students) {
         if (stud.vargsiukas) {
             vargsiukai.push_back(stud);

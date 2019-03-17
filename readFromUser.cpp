@@ -20,12 +20,7 @@ void readFromUser(const int numberOfStudents, vector<student>& students) {
         int isNeededToGenerate;
         cin >> isNeededToGenerate;
         wasStringGivenInsteadInt(isNeededToGenerate);
-
-        while (isNeededToGenerate != 1 && isNeededToGenerate != 0) { // Ar įvestis tinkama
-            cout << "Įvestas skaičius neatitinka jokio pasirinkimo. Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
-            cin >> isNeededToGenerate;
-            cout << endl;
-        }
+        checkIfBinary(isNeededToGenerate, "Įvestas skaičius neatitinka jokio pasirinkimo. Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ");
 
         if (isNeededToGenerate == 1) {
             students[i].generateGrades();
