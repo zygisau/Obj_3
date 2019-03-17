@@ -167,8 +167,8 @@ Paleisti programą galima keliais būdais.
 - `cd Duomenu-apdorojimas`  
 - Jei naudojate CMAKE, naudoti reikia CMakeLists.txt failą.
 Yra du *executables*:
---Duomenu_apdorojimas <-- pasirinkite, jei norite paleisti programą, kuri naudoja konteinerius
---Duomenu_apdorojimas_masyvai <-- pasirinkite, jei norite paleisti programą, kuri naudoja dinaminį masyvą
+  - Duomenu_apdorojimas <-- pasirinkite, jei norite paleisti programą, kuri naudoja konteinerius
+  - Duomenu_apdorojimas_masyvai <-- pasirinkite, jei norite paleisti programą, kuri naudoja dinaminį masyvą
   
   
 ## Versijų istorija (changelog)  
