@@ -95,23 +95,23 @@ void filterStudents (deque<student>& students, deque<student>& vargsiukai) {
 }
 
 void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
-    int ind = 0;
+    auto bound = std::stable_partition(students.begin(), students.end(),
+                                   [&](const auto& x) { return !(x.vargsiukas); });
 
-//    auto bound = std::stable_partition(students.begin(), students.end(),
-//                                   [&](const auto& x) { return !(x.vargsiukas); });
-//
-//    vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
-//                  std::make_move_iterator(students.end()));
-//
-//    students.erase(bound, students.end());
+    vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
+                  std::make_move_iterator(students.end()));
 
-    for (auto &stud : students) {
-        if (stud.vargsiukas) {
-            vargsiukai.push_back(stud);
-            students.erase(students.begin() + ind);
-            ind++;
-        }
-    }
+    students.erase(bound, students.end());
+
+// Blogesnis variantas
+//    int ind = 0;
+//    for (auto &stud : students) {
+//        if (stud.vargsiukas) {
+//            vargsiukai.push_back(stud);
+//            students.erase(students.begin() + ind);
+//            ind++;
+//        }
+//    }
 }
 
 void filterStudentsStrat1 (list<student>& students, list<student>& vargsiukai, list<student>& kietiakai) {
