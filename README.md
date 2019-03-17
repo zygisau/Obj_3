@@ -184,7 +184,7 @@ Yra du *executables*:
  - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.  
  - Sukurtas makefile.  
   
-   ### [v0.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.2) - (2019-02-17)  
+ ### [v0.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.2) - (2019-02-17)  
   
   **Koreguota**  
   
