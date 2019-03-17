@@ -164,7 +164,7 @@ void menu() {
             }
         } else {
             Timer clock;
-            readFromFile(students, vargsiukai, "kursiokai100000.txt", false);
+            readFromFile(students, vargsiukai, "kursiokai.txt", false);
             cout << "Darbas su vektoriaus konteneiriu truko " << clock.elapsed() << " s" << endl;
         }
     }
