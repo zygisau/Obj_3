@@ -151,10 +151,10 @@ void menu() {
         checkIfBinary(inputSelection, "Ar norite atlikti programos veikimo greičio (spartos) analizę? (1 - taip, 0 - ne) ");
 
         if (inputSelection == 1) {
-            cout << "Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 2-ne): ";
+            cout << "Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 0-ne): ";
             cin >> inputSelection;
             wasStringGivenInsteadInt(inputSelection);
-            checkIfBinary(inputSelection, "Netinkama įvestis. Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 2-ne): ");
+            checkIfBinary(inputSelection, "Netinkama įvestis. Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 0-ne): ");
 
             if (inputSelection == 1) {
                 containerTestBadStrat();
