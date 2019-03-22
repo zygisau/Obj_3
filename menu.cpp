@@ -2,100 +2,12 @@
 #include "functions.h"
 #include "readFromFile.cpp"
 #include "readFromUser.cpp"
-//
-template < typename container >
-void speedTest(container & students, container & vargsiukai, bool strat1) {
-    cout.flush();
-    Timer t;
-    readFromFile(students, vargsiukai, "kursiokai10.txt", strat1);
-    cout << "Darbas su \"kursiokai10.txt\" užtruko: " << t.elapsed() << " s" << endl;
+#include "speedTests.h"
 
-    cout << endl;
-
-    t.reset();
-    readFromFile(students, vargsiukai, "kursiokai100.txt", strat1);
-    cout << "Darbas su \"kursiokai100.txt\" užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    t.reset();
-    readFromFile(students, vargsiukai, "kursiokai1000.txt", strat1);
-    cout << "Darbas su \"kursiokai1000.txt\" užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    t.reset();
-    readFromFile(students, vargsiukai, "kursiokai10000.txt", strat1);
-    cout << "Darbas su \"kursiokai10000.txt\" užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    t.reset();
-    readFromFile(students, vargsiukai, "kursiokai100000.txt", strat1);
-    cout << "Darbas su \"kursiokai100000.txt\" užtruko: " << t.elapsed() << " s" << endl;
-}
-
-void containerTest() {
-    cout << "Startegija 2" << endl << endl;
-
-    cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
-    Timer t;
-    vector<student> students;
-    vector<student> vargsiukai;
-    speedTest(students, vargsiukai, false);
-    cout << "Darbas su STD::VECTOR konteineriu užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
-    t.reset();
-    list<student> studentsList;
-    list<student> vargsiukaiList;
-    speedTest(studentsList, vargsiukaiList, false);
-    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
-    t.reset();
-    deque<student> studentsDeque;
-    deque<student> vargsiukaiDeque;
-    speedTest(studentsDeque, vargsiukaiDeque, false);
-    cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
-}
-
-void containerTestBadStrat() {
-    cout << "Startegija 1" << endl << endl;
-
-    cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
-    Timer t;
-    vector<student> students;
-    vector<student> vargsiukai;
-    speedTest(students, vargsiukai, true);
-    cout << "Darbas su STD::VECTOR konteineriu užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
-    t.reset();
-    list<student> studentsList;
-    list<student> vargsiukaiList;
-    speedTest(studentsList, vargsiukaiList, true);
-    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
-    t.reset();
-    deque<student> studentsDeque;
-    deque<student> vargsiukaiDeque;
-    speedTest(studentsDeque, vargsiukaiDeque, true);
-    cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
-}
-//
 void menu() {
     int numberOfStudents, inputSelection;
 
+// Generavimas
     cout << "Ar reikia generuoti tekstinius failus \"kursiokaiXX.txt\"? (1 - taip, 0 - ne) ";
     cin >> inputSelection;
     wasStringGivenInsteadInt(inputSelection);
@@ -111,20 +23,40 @@ void menu() {
         cout << endl;
     }
 
+// Konteinerių analizė
     cout << "Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne) ";
     cin >> inputSelection;
     wasStringGivenInsteadInt(inputSelection);
     checkIfBinary(inputSelection, "Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne)");
 
     if (inputSelection == 1) {
-        containerTest();
+
+// Įmanoma pasirinkti dvi strategijas. Pirma mažiau naši.
+        cout << "Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 0-ne): ";
+        cin >> inputSelection;
+        wasStringGivenInsteadInt(inputSelection);
+        checkIfBinary(inputSelection, "Netinkama įvestis. Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 0-ne): ");
+
+        if (inputSelection == 1) {
+            containerTestBadStrat();
+            containerTest();
+        } else  {
+            containerTest();
+        }
         cout << endl;
+
+        cout << endl << "Press enter to continue ..." << endl;
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        cin.get();
         exit(0);
     }
 
+// Sukuriami pagrindiniai kintamieji
     vector<student> students;
     vector<student> vargsiukai;
 
+// Ar bus pažymiai vedami ranka?
     cout << "Įvedinėsite duomenis ranka ar iš failo? (1 - ranka, 0 - iš failo)";
     cin >> inputSelection;
     wasStringGivenInsteadInt(inputSelection);
@@ -144,25 +76,21 @@ void menu() {
         }
 
         readFromUser(numberOfStudents, students);
+
+// Jei nebus ranka įrašomi pažymiai
     } else {
+
+// Ar bus skaičiuojama std::vector sparta, dirbant su įvairiu skaičiumi studentų
         cout << "Ar norite atlikti programos veikimo greičio (spartos) analizę? (1 - taip, 0 - ne) ";
         cin >> inputSelection;
         wasStringGivenInsteadInt(inputSelection);
         checkIfBinary(inputSelection, "Ar norite atlikti programos veikimo greičio (spartos) analizę? (1 - taip, 0 - ne) ");
 
         if (inputSelection == 1) {
-            cout << "Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 0-ne): ";
-            cin >> inputSelection;
-            wasStringGivenInsteadInt(inputSelection);
-            checkIfBinary(inputSelection, "Netinkama įvestis. Ar norite realizuoti dvi strategijas? Jei ne, bus naudojama tik antra strategija. (1-taip 0-ne): ");
-
-            if (inputSelection == 1) {
-                containerTestBadStrat();
-                containerTest();
-            } else  {
                 speedTest(students, vargsiukai, false);
-            }
         } else {
+
+// Jei nenorima atlikti jokios analiazės, tiesiog imamas kursiokai.txt failas ir daromi su juo skaičivimai.
             Timer clock;
             readFromFile(students, vargsiukai, "kursiokai.txt", false);
             cout << "Darbas su vektoriaus konteneiriu truko " << clock.elapsed() << " s" << endl;

@@ -87,9 +87,7 @@ struct student {
        std::uniform_real_distribution<double> random(1, 10);
        for (int i=0; i<numberOfGrades; i++) { // pereina per kiekvieną pažymį
            grades[i] = (int)random(rng);
-//            cout << grades[i] << " ";
        }
-//        cout << endl;
        exam = (int)random(rng);
    }
 };

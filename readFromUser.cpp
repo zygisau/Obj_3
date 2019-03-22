@@ -3,8 +3,6 @@
 void readFromUser(const int numberOfStudents, vector<student>& students) {
     int maxString = 0; // Ilgiausia simbolių eilutė rezultatų spausdinimui
 
-//    double reiksme = students[1000].exam;
-
     for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
         students.push_back(student());
 
@@ -16,6 +14,7 @@ void readFromUser(const int numberOfStudents, vector<student>& students) {
         cin >> students[i].surname;
         compareStrings(maxString, students[i].surname);
 
+// Ar reikia generuoti studentui pažymius
         cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
         int isNeededToGenerate;
         cin >> isNeededToGenerate;
@@ -33,18 +32,19 @@ void readFromUser(const int numberOfStudents, vector<student>& students) {
 
             wasStringGivenInsteadInt(students[i].exam);
 
-            while(students[i].exam > 10) {
+            while(students[i].exam > 10) { // Ar pažymys tinkamas dešimtbalei sistemai
                 cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
                 cout << "Pažymys: ";
                 cin >> students[i].exam;
                 wasStringGivenInsteadInt(students[i].exam);
             }
         }
+
+        students[i].getGalutinis();
+
         cout << endl;
     }
-    for (auto &student : students) {
-        student.getGalutinis();
-    }
+
     cout << endl;
     printResult(students, maxString);
 }

@@ -15,10 +15,13 @@
 #include <deque>
 #include <list>
 #include <stdlib.h>
+#include <typeinfo>
+#include <string.h>
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
 using std::sort; using std::stoi; using std::vector; using std::ifstream; using std::list; using std::deque;
 
+// Funkcija, kurios reikia struktūroje esančioms funkcijoms, taigi įdėta čia
 void wasStringGivenInsteadInt(int &param) {
     while (cin.fail()) { // ciklas, kol bus įvestas skaičius
         cout << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: ";
@@ -38,6 +41,7 @@ struct student {
     int numberOfGrades=0;
     bool vargsiukas=false;
 
+    // Per konsolę įrašomi pažymiai
     void getGrades() {
         grades.reserve(5);
         int input;
@@ -45,12 +49,13 @@ struct student {
         while (numberOfGrades <= 0) { // kol neirasytas nei vienas pazymys
             cout << "Pažymys: ";
             while (cin >> input) { // kol raso pazymius, kad nustotu, turi parasyti ne skaiciu, kas reikstu false
-                if (input <= 10) {
+                if (input > 0 && input <= 10) {
                     numberOfGrades++;
                     grades.push_back(input);
                 } else {
-                    cout << "Parametras per didelis dešimtbalei sistemai. Prašome pateikti teisingą parametrą. " << endl;
+                    cout << "Parametras netinkamas dešimtbalei sistemai. Prašome pateikti teisingą parametrą. " << endl;
                 }
+
             }
             cin.clear();
         }
@@ -60,21 +65,27 @@ struct student {
         numberOfGrades++; // Šis kintamasis toliau naudojamas kaip masyvo elementų skaičius, kuris turi būti didesnis nei auksčiausias masyvo elementų indeksas
     }
 
+// Apskaičiuoja vidurkį
     float getAverage() {
         int sum = 0;
         float average;
+
         sum = std::accumulate(grades.begin(), grades.end(), 0);
         average = (float)sum/grades.size();
+
         return average;
     }
+
+// Apskaičiuoja medianą
     float getMedian() {
         sort(grades.begin(), grades.end());
         float median;
-        int middleIndex = grades.size()/2;
+        int size = grades.size();
+        int middleIndex = size/2;
 
-        if (grades.size() == 1) {
+        if (size == 1) {
             median = grades[0];
-        } else if (grades.size() % 2 == 0) {
+        } else if (size % 2 == 0) {
             median = (float)(grades[middleIndex] + grades[--middleIndex])/2;
         } else {
             median = grades[--middleIndex];
@@ -82,6 +93,8 @@ struct student {
 
         return median;
     }
+
+// Apskaičiuoja abu galutinius pažymius
     void getGalutinis() {
         float multiplier;
         multiplier = getAverage();
@@ -94,10 +107,18 @@ struct student {
         multiplier = getMedian();
         galutinisMedian = 0.4 * multiplier + 0.6 * exam;
     }
+
+// Pažymių generavimas studentui
     void generateGrades() {
         cout << "Kiek pažymių generuoti? (daugiausiai galima " << grades.max_size() << ") ";
         cin >> numberOfGrades;
         wasStringGivenInsteadInt(numberOfGrades);
+        while (numberOfGrades == 0) {
+            cout << "Turi būti įrašytas bent vienas pažymys. Kiek pažymių generuoti? (daugiausiai galima " << grades.max_size() << ") ";
+            cin >> numberOfGrades;
+            wasStringGivenInsteadInt(numberOfGrades);
+        }
+
         try {
             grades.reserve((unsigned)numberOfGrades);
         } catch (const std::length_error& error) {
@@ -105,13 +126,11 @@ struct student {
             grades.reserve(30);
             numberOfGrades = 30;
         }
+
         const unsigned int seed = time(0);
         std::mt19937_64 rng(seed);
         std::uniform_int_distribution<> random(1, 10);
-//        grades.resize(numberOfGrades);
-//        generate(grades.begin(), grades.end(), [random, rng] (auto random, auto rng) -> int {
-//            return random(rng);
-//        });
+
         for (int i=0; i<numberOfGrades; i++) { // pereina per kiekvieną pažymį
             grades.push_back(random(rng));
         }
@@ -120,6 +139,7 @@ struct student {
     }
 };
 
+// Klasė, matuojanti laiką
 class Timer { // paimta iš https://github.com/objprog/paskaitos2019/wiki/Laiko-matavimas
 private:
     std::chrono::time_point<std::chrono::high_resolution_clock> start;

@@ -27,7 +27,7 @@ void filterStudentsStrat1 (vector<student>& students, vector<student>& vargsiuka
 void generateFile(string fileName, int size);
 
 template < typename container >
-void printToFile(container students, int maxString, string fileName);
+void printToFile(const container & students, int maxString, string fileName);
 
 #include "functions.cpp"
 
