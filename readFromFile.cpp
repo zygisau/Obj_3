@@ -51,12 +51,13 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
         stud.getGalutinis();
         stud.grades.clear();
 
-        students.push_back(stud);
-//        auto t = students.begin();
-//        (*t).name = stud.name;
-//        (*t).surname = stud.surname;
-//        (*t).galutinis = stud.galutinis;
-//        (*t).vargsiukas = stud.vargsiukas;
+        students.push_back(student()); //emplace_back
+        student *studentPtr = &students.back();
+        (*studentPtr).name = stud.name;
+        (*studentPtr).name = stud.surname;
+        (*studentPtr).galutinis = stud.galutinis;
+
+//        students.push_back(stud); // ŠITIE VARIANTAI NEVEIKIA SU STD::LIST KONTEINERIU. NEĮRAŠO Į KONTEINERĮ NIEKO
 //        students.insert(students.end(), stud);
         stud = {};
     }
