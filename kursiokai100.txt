@@ -1,101 +1,101 @@
-Vardas                        Pavardė                      ND1  ND2  ND3  ND4  ND5  
-Vardas1                       Pavardė1                     9    9    1    6    6    
-Vardas2                       Pavardė2                     1    2    8    5    4    
-Vardas3                       Pavardė3                     4    9    2    1    5    
-Vardas4                       Pavardė4                     4    6    9    4    5    
-Vardas5                       Pavardė5                     5    6    8    4    2    
-Vardas6                       Pavardė6                     4    1    3    5    4    
-Vardas7                       Pavardė7                     6    9    5    1    8    
-Vardas8                       Pavardė8                     4    7    3    1    5    
-Vardas9                       Pavardė9                     6    7    5    3    2    
-Vardas10                      Pavardė10                    4    1    4    2    8    
-Vardas11                      Pavardė11                    2    2    6    5    7    
-Vardas12                      Pavardė12                    6    5    4    2    3    
-Vardas13                      Pavardė13                    3    7    1    6    7    
-Vardas14                      Pavardė14                    5    2    8    9    5    
-Vardas15                      Pavardė15                    6    3    4    8    1    
-Vardas16                      Pavardė16                    5    2    3    3    3    
-Vardas17                      Pavardė17                    8    6    8    5    4    
-Vardas18                      Pavardė18                    7    5    7    8    2    
-Vardas19                      Pavardė19                    9    3    5    2    9    
-Vardas20                      Pavardė20                    2    2    2    8    1    
-Vardas21                      Pavardė21                    8    7    9    7    6    
-Vardas22                      Pavardė22                    7    3    1    7    8    
-Vardas23                      Pavardė23                    9    8    5    9    8    
-Vardas24                      Pavardė24                    6    1    2    7    6    
-Vardas25                      Pavardė25                    2    8    5    3    8    
-Vardas26                      Pavardė26                    3    7    3    9    4    
-Vardas27                      Pavardė27                    8    2    6    3    3    
-Vardas28                      Pavardė28                    5    6    1    6    2    
-Vardas29                      Pavardė29                    3    3    7    8    4    
-Vardas30                      Pavardė30                    5    2    7    1    8    
-Vardas31                      Pavardė31                    1    8    9    6    8    
-Vardas32                      Pavardė32                    9    6    3    5    7    
-Vardas33                      Pavardė33                    7    8    4    6    3    
-Vardas34                      Pavardė34                    5    4    9    9    5    
-Vardas35                      Pavardė35                    1    3    8    4    8    
-Vardas36                      Pavardė36                    7    8    9    5    1    
-Vardas37                      Pavardė37                    5    8    2    7    2    
-Vardas38                      Pavardė38                    4    8    9    6    1    
-Vardas39                      Pavardė39                    6    8    3    2    8    
-Vardas40                      Pavardė40                    7    4    1    6    3    
-Vardas41                      Pavardė41                    5    5    2    6    4    
-Vardas42                      Pavardė42                    3    3    4    6    4    
-Vardas43                      Pavardė43                    6    4    3    4    4    
-Vardas44                      Pavardė44                    2    9    3    6    2    
-Vardas45                      Pavardė45                    9    9    8    2    1    
-Vardas46                      Pavardė46                    2    9    4    1    6    
-Vardas47                      Pavardė47                    8    9    9    9    3    
-Vardas48                      Pavardė48                    4    3    7    3    6    
-Vardas49                      Pavardė49                    2    6    4    2    3    
-Vardas50                      Pavardė50                    9    5    4    1    9    
-Vardas51                      Pavardė51                    4    1    1    2    7    
-Vardas52                      Pavardė52                    5    9    9    7    6    
-Vardas53                      Pavardė53                    7    3    6    6    6    
-Vardas54                      Pavardė54                    7    7    3    9    5    
-Vardas55                      Pavardė55                    8    2    3    5    2    
-Vardas56                      Pavardė56                    3    3    6    4    2    
-Vardas57                      Pavardė57                    5    7    3    7    7    
-Vardas58                      Pavardė58                    6    7    8    3    7    
-Vardas59                      Pavardė59                    6    5    3    2    9    
-Vardas60                      Pavardė60                    3    4    5    4    2    
-Vardas61                      Pavardė61                    5    2    1    4    2    
-Vardas62                      Pavardė62                    2    1    7    3    1    
-Vardas63                      Pavardė63                    1    5    3    9    8    
-Vardas64                      Pavardė64                    6    9    8    2    3    
-Vardas65                      Pavardė65                    4    6    5    1    6    
-Vardas66                      Pavardė66                    7    9    2    9    3    
-Vardas67                      Pavardė67                    2    2    2    2    9    
-Vardas68                      Pavardė68                    9    3    1    4    8    
-Vardas69                      Pavardė69                    4    1    1    5    5    
-Vardas70                      Pavardė70                    7    8    6    9    3    
-Vardas71                      Pavardė71                    4    9    5    7    5    
-Vardas72                      Pavardė72                    7    1    8    2    3    
-Vardas73                      Pavardė73                    9    5    9    3    8    
-Vardas74                      Pavardė74                    8    7    2    2    6    
-Vardas75                      Pavardė75                    2    1    9    2    8    
-Vardas76                      Pavardė76                    4    4    3    2    1    
-Vardas77                      Pavardė77                    5    6    5    8    2    
-Vardas78                      Pavardė78                    4    4    2    3    6    
-Vardas79                      Pavardė79                    8    8    5    6    8    
-Vardas80                      Pavardė80                    2    4    7    8    9    
-Vardas81                      Pavardė81                    8    8    8    2    8    
-Vardas82                      Pavardė82                    6    5    1    3    8    
-Vardas83                      Pavardė83                    2    5    5    5    5    
-Vardas84                      Pavardė84                    4    6    4    4    9    
-Vardas85                      Pavardė85                    6    4    5    6    6    
-Vardas86                      Pavardė86                    5    6    6    9    6    
-Vardas87                      Pavardė87                    6    1    1    6    6    
-Vardas88                      Pavardė88                    4    4    2    7    5    
-Vardas89                      Pavardė89                    7    3    4    4    2    
-Vardas90                      Pavardė90                    3    8    9    8    1    
-Vardas91                      Pavardė91                    9    2    2    3    4    
-Vardas92                      Pavardė92                    7    8    9    6    2    
-Vardas93                      Pavardė93                    8    9    4    6    2    
-Vardas94                      Pavardė94                    9    7    6    9    3    
-Vardas95                      Pavardė95                    8    7    5    6    4    
-Vardas96                      Pavardė96                    1    7    1    1    9    
-Vardas97                      Pavardė97                    3    7    9    9    3    
-Vardas98                      Pavardė98                    3    3    2    7    8    
-Vardas99                      Pavardė99                    8    1    6    8    5    
-Vardas100                     Pavardė100                   6    2    8    2    2    
+Vardas                        Pavardė                      ND1  ND2  ND3  ND4  ND5  EGZ  
+Vardas1                       Pavardė1                     8    10   2    8    8    8    
+Vardas2                       Pavardė2                     5    5    1    7    3    10   
+Vardas3                       Pavardė3                     6    3    1    6    6    4    
+Vardas4                       Pavardė4                     3    1    2    3    4    8    
+Vardas5                       Pavardė5                     9    9    8    7    4    6    
+Vardas6                       Pavardė6                     1    7    9    4    7    6    
+Vardas7                       Pavardė7                     3    10   3    8    6    10   
+Vardas8                       Pavardė8                     2    1    4    4    6    8    
+Vardas9                       Pavardė9                     1    6    5    9    7    9    
+Vardas10                      Pavardė10                    3    10   3    9    1    9    
+Vardas11                      Pavardė11                    7    3    7    1    7    2    
+Vardas12                      Pavardė12                    1    5    9    9    2    4    
+Vardas13                      Pavardė13                    1    6    4    8    3    8    
+Vardas14                      Pavardė14                    7    2    2    2    10   10   
+Vardas15                      Pavardė15                    4    10   10   5    5    4    
+Vardas16                      Pavardė16                    7    3    3    2    3    2    
+Vardas17                      Pavardė17                    3    4    5    4    9    1    
+Vardas18                      Pavardė18                    5    9    9    6    1    9    
+Vardas19                      Pavardė19                    1    1    1    9    4    7    
+Vardas20                      Pavardė20                    8    8    9    7    6    7    
+Vardas21                      Pavardė21                    6    4    5    1    4    1    
+Vardas22                      Pavardė22                    4    1    1    2    4    4    
+Vardas23                      Pavardė23                    3    9    3    7    6    5    
+Vardas24                      Pavardė24                    8    2    7    9    5    1    
+Vardas25                      Pavardė25                    7    5    2    3    9    6    
+Vardas26                      Pavardė26                    5    2    7    7    4    4    
+Vardas27                      Pavardė27                    1    9    7    5    2    8    
+Vardas28                      Pavardė28                    3    2    7    8    5    9    
+Vardas29                      Pavardė29                    1    4    2    4    6    7    
+Vardas30                      Pavardė30                    7    2    6    4    3    1    
+Vardas31                      Pavardė31                    9    10   9    8    7    10   
+Vardas32                      Pavardė32                    10   3    6    1    8    5    
+Vardas33                      Pavardė33                    7    10   9    9    4    5    
+Vardas34                      Pavardė34                    3    7    1    8    2    6    
+Vardas35                      Pavardė35                    1    9    4    4    4    6    
+Vardas36                      Pavardė36                    9    4    4    1    7    1    
+Vardas37                      Pavardė37                    8    3    2    7    4    10   
+Vardas38                      Pavardė38                    3    9    9    6    8    9    
+Vardas39                      Pavardė39                    2    8    3    7    8    8    
+Vardas40                      Pavardė40                    7    9    10   8    7    1    
+Vardas41                      Pavardė41                    8    2    4    9    6    5    
+Vardas42                      Pavardė42                    6    6    5    10   7    1    
+Vardas43                      Pavardė43                    1    6    7    7    6    6    
+Vardas44                      Pavardė44                    3    2    8    3    1    9    
+Vardas45                      Pavardė45                    9    10   4    8    8    2    
+Vardas46                      Pavardė46                    4    8    2    7    8    3    
+Vardas47                      Pavardė47                    10   1    3    10   3    4    
+Vardas48                      Pavardė48                    9    10   4    4    5    4    
+Vardas49                      Pavardė49                    10   10   8    8    9    1    
+Vardas50                      Pavardė50                    8    4    10   1    10   10   
+Vardas51                      Pavardė51                    8    8    4    2    9    7    
+Vardas52                      Pavardė52                    2    10   3    1    8    9    
+Vardas53                      Pavardė53                    9    6    9    9    10   4    
+Vardas54                      Pavardė54                    4    1    6    10   9    4    
+Vardas55                      Pavardė55                    9    8    4    1    4    6    
+Vardas56                      Pavardė56                    3    7    2    7    3    4    
+Vardas57                      Pavardė57                    10   10   6    4    2    5    
+Vardas58                      Pavardė58                    10   5    6    7    6    1    
+Vardas59                      Pavardė59                    10   5    8    1    9    4    
+Vardas60                      Pavardė60                    6    1    1    7    6    2    
+Vardas61                      Pavardė61                    1    2    6    8    7    4    
+Vardas62                      Pavardė62                    4    4    9    4    7    6    
+Vardas63                      Pavardė63                    1    8    10   7    3    3    
+Vardas64                      Pavardė64                    1    3    2    2    6    2    
+Vardas65                      Pavardė65                    10   6    6    6    4    6    
+Vardas66                      Pavardė66                    5    5    3    2    7    8    
+Vardas67                      Pavardė67                    4    1    5    9    7    8    
+Vardas68                      Pavardė68                    6    7    4    3    1    3    
+Vardas69                      Pavardė69                    6    5    2    10   4    9    
+Vardas70                      Pavardė70                    4    3    7    5    1    4    
+Vardas71                      Pavardė71                    3    10   8    6    10   9    
+Vardas72                      Pavardė72                    5    2    2    8    9    4    
+Vardas73                      Pavardė73                    5    8    10   3    4    5    
+Vardas74                      Pavardė74                    2    6    8    8    10   3    
+Vardas75                      Pavardė75                    1    6    2    9    6    3    
+Vardas76                      Pavardė76                    1    4    7    2    6    1    
+Vardas77                      Pavardė77                    2    6    10   9    5    4    
+Vardas78                      Pavardė78                    9    3    3    7    3    2    
+Vardas79                      Pavardė79                    3    3    10   2    5    4    
+Vardas80                      Pavardė80                    6    10   10   1    9    4    
+Vardas81                      Pavardė81                    8    3    9    2    1    9    
+Vardas82                      Pavardė82                    1    8    9    6    2    2    
+Vardas83                      Pavardė83                    7    2    5    5    9    2    
+Vardas84                      Pavardė84                    10   8    2    10   4    5    
+Vardas85                      Pavardė85                    8    1    2    4    2    9    
+Vardas86                      Pavardė86                    7    3    2    1    10   8    
+Vardas87                      Pavardė87                    6    7    9    4    6    8    
+Vardas88                      Pavardė88                    8    8    4    4    4    7    
+Vardas89                      Pavardė89                    5    5    4    4    8    9    
+Vardas90                      Pavardė90                    8    6    9    5    1    3    
+Vardas91                      Pavardė91                    1    7    2    1    2    9    
+Vardas92                      Pavardė92                    7    3    7    6    9    3    
+Vardas93                      Pavardė93                    2    10   9    4    2    1    
+Vardas94                      Pavardė94                    6    6    9    6    4    10   
+Vardas95                      Pavardė95                    1    7    5    8    5    7    
+Vardas96                      Pavardė96                    4    1    5    7    3    10   
+Vardas97                      Pavardė97                    10   10   4    8    6    8    
+Vardas98                      Pavardė98                    1    8    9    8    8    8    
+Vardas99                      Pavardė99                    7    8    1    5    10   8    
+Vardas100                     Pavardė100                   1    9    2    1    7    8    

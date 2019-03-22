@@ -54,12 +54,12 @@ void containerTest() {
 
     cout << endl;
 
-//    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
-//    t.reset();
-//    list<student> studentsList;
-//    list<student> vargsiukaiList;
-//    speedTest(studentsList, vargsiukaiList, false);
-//    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
+   cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
+   t.reset();
+   list<student> studentsList;
+   list<student> vargsiukaiList;
+   speedTest(studentsList, vargsiukaiList, false);
+   cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
 }
 
 // Pirmoji strategija

@@ -51,7 +51,7 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
         stud.getGalutinis();
         stud.grades.clear();
 
-        students.push_back(student());
+        students.push_back(stud);
 //        auto t = students.begin();
 //        (*t).name = stud.name;
 //        (*t).surname = stud.surname;

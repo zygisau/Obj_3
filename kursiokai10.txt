@@ -1,11 +1,11 @@
-Vardas                        Pavardė                      ND1  ND2  ND3  ND4  ND5  
-Vardas1                       Pavardė1                     7    5    5    9    4    
-Vardas2                       Pavardė2                     1    2    5    6    9    
-Vardas3                       Pavardė3                     2    8    1    3    8    
-Vardas4                       Pavardė4                     9    5    3    8    9    
-Vardas5                       Pavardė5                     2    6    4    1    3    
-Vardas6                       Pavardė6                     7    9    8    9    6    
-Vardas7                       Pavardė7                     4    8    9    8    2    
-Vardas8                       Pavardė8                     9    8    7    2    7    
-Vardas9                       Pavardė9                     8    9    2    7    5    
-Vardas10                      Pavardė10                    5    3    9    4    5    
+Vardas                        Pavardė                      ND1  ND2  ND3  ND4  ND5  EGZ  
+Vardas1                       Pavardė1                     5    2    2    4    1    9    
+Vardas2                       Pavardė2                     8    6    4    1    2    2    
+Vardas3                       Pavardė3                     4    5    1    9    3    2    
+Vardas4                       Pavardė4                     3    4    5    5    5    2    
+Vardas5                       Pavardė5                     3    3    5    1    1    7    
+Vardas6                       Pavardė6                     9    8    1    7    8    5    
+Vardas7                       Pavardė7                     9    5    9    8    2    1    
+Vardas8                       Pavardė8                     2    3    6    2    6    7    
+Vardas9                       Pavardė9                     3    6    6    10   3    6    
+Vardas10                      Pavardė10                    5    10   5    6    5    1    
