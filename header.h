@@ -24,7 +24,7 @@ using std::sort; using std::stoi; using std::vector; using std::ifstream; using 
 // Funkcija, kurios reikia struktūroje esančioms funkcijoms, taigi įdėta čia
 void wasStringGivenInsteadInt(int &param) {
     while (cin.fail()) { // ciklas, kol bus įvestas skaičius
-        cout << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: ";
+        cout << endl << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: ";
         cin.clear();
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         cin >> param;
@@ -45,23 +45,32 @@ struct student {
     void getGrades() {
         grades.reserve(5);
         int input;
+        bool stop = false;
 
-        while (numberOfGrades <= 0) { // kol neirasytas nei vienas pazymys
-            cout << "Pažymys: ";
-            while (cin >> input) { // kol raso pazymius, kad nustotu, turi parasyti ne skaiciu, kas reikstu false
-                if (input > 0 && input <= 10) {
-                    numberOfGrades++;
-                    grades.push_back(input);
+            do { // Kol nenustoja rašyti skaičių
+                cout << "Pažymys: ";
+                cin >> input;
+                if (!cin.fail()) { // kol rašo pažymius, kad nustotų, turi parašyti ne skaičių
+                    if (input > 0 && input <= 10) {
+                        numberOfGrades++;
+                        grades.push_back(input);
+                    } else {
+                        cout << "Parametras netinkamas dešimtbalei sistemai. Prašome pateikti teisingą parametrą. "
+                             << endl;
+                    }
                 } else {
-                    cout << "Parametras netinkamas dešimtbalei sistemai. Prašome pateikti teisingą parametrą. " << endl;
+                    stop = true;
+                    if ( numberOfGrades <= 0 ) { // Ar yra bent vienas pažymys?
+                        cout << "Privalo būti įrašytas bent vienas pažymys";
+                        stop = false;
+                    }
                 }
 
-            }
-            cin.clear();
-        }
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            } while ( !stop );
 
         cin.clear();
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         numberOfGrades++; // Šis kintamasis toliau naudojamas kaip masyvo elementų skaičius, kuris turi būti didesnis nei auksčiausias masyvo elementų indeksas
     }
 

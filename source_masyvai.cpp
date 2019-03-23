@@ -94,7 +94,7 @@ struct student {
 // Funkcijos
 void wasStringGivenInsteadInt(int &param) {
    while (cin.fail()) {// ciklas, kol bus įvestas skaičius
-       cout << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: ";
+       cout << endl << "Parametras neįrašytas. Prašome pateikti teisingą parametrą: ";
        cin.clear();
        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
        cin >> param;
