@@ -247,4 +247,9 @@ Yra du *executables*:
 - Pridėta galimybė paleisti iš CMake failo abidvi programos realizacijas
 - Ištrintas makefile (CMake universalesnis).
   
-[version-badge]: https://img.shields.io/badge/version-1.0-yellow.svg
+### [v1.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1) - (2019-03-23)  
+  
+  **Koreguota**  
+- Sutvarkytas pažymių generavimas ir lygiavimas.
+
+[version-badge]: https://img.shields.io/badge/version-1.1-yellow.svg
