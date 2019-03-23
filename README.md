@@ -65,86 +65,86 @@ Testuojami šie konteineriai
 Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne)  
 1  
   
-Pradedamas darbas naudojant vector konteinerį...  
-Nuskaitymas iš failo truko: 0 s  
-Studentų filtravimas (skirstymas) truko: 0 s  
-įrašymas į failą truko: 0.0072953 s  
-Darbas su "kursiokai10.txt" užtruko: 0.0072953 s  
-  
-Nuskaitymas iš failo truko: 0 s  
-Studentų filtravimas (skirstymas) truko: 0 s  
-įrašymas į failą truko: 0.0136461 s  
-Darbas su "kursiokai100.txt" užtruko: 0.0136461 s  
-  
-Nuskaitymas iš failo truko: 0.0081595 s  
-Studentų filtravimas (skirstymas) truko: 0.0578434 s  
-įrašymas į failą truko: 0.0290793 s  
-Darbas su "kursiokai1000.txt" užtruko: 0.107586 s  
-  
-Nuskaitymas iš failo truko: 0.123461 s  
-Studentų filtravimas (skirstymas) truko: 5.53951 s  
-įrašymas į failą truko: 0.0935523 s  
-Darbas su "kursiokai10000.txt" užtruko: 5.75755 s  
-  
-Nuskaitymas iš failo truko: 0.774174 s  
-Studentų filtravimas (skirstymas) truko: 809.702 s  
-įrašymas į failą truko: 1.16679 s  
-Darbas su "kursiokai100000.txt" užtruko: 811.673 s  
-Darbas su STD::VECTOR konteineriu užtruko: 817.563 s  
-  
-Pradedamas darbas naudojant list konteinerį...  
-Nuskaitymas iš failo truko: 0.0010365 s  
-Studentų filtravimas (skirstymas) truko: 0.0010644 s  
-įrašymas į failą truko: 0.0197029 s  
-Darbas su "kursiokai10.txt" užtruko: 0.0246866 s  
-  
-Nuskaitymas iš failo truko: 0.0019967 s  
-Studentų filtravimas (skirstymas) truko: 0.0006381 s  
-įrašymas į failą truko: 0.0019932 s  
-Darbas su "kursiokai100.txt" užtruko: 0.016478 s  
-  
-Nuskaitymas iš failo truko: 0.0019952 s  
-Studentų filtravimas (skirstymas) truko: 0.0173109 s  
-įrašymas į failą truko: 0.048476 s  
-Darbas su "kursiokai1000.txt" užtruko: 0.0727771 s  
-  
-Nuskaitymas iš failo truko: 0.101094 s  
-Studentų filtravimas (skirstymas) truko: 0.0310594 s  
-įrašymas į failą truko: 0.15154 s  
-Darbas su "kursiokai10000.txt" užtruko: 0.28776 s  
-  
-Nuskaitymas iš failo truko: 1.11357 s  
-Studentų filtravimas (skirstymas) truko: 0.27484 s  
-įrašymas į failą truko: 1.18493 s  
-Darbas su "kursiokai100000.txt" užtruko: 2.62884 s  
-Darbas su STD::LIST konteineriu užtruko: 3.03572 s  
-  
-Pradedamas darbas naudojant deque konteinerį...  
-Nuskaitymas iš failo truko: 0.0009961 s  
-Studentų filtravimas (skirstymas) truko: 0 s  
-įrašymas į failą truko: 0.0180864 s  
-Darbas su "kursiokai10.txt" užtruko: 0.0203142 s  
-  
-Nuskaitymas iš failo truko: 0.001098 s  
-Studentų filtravimas (skirstymas) truko: 0 s  
-įrašymas į failą truko: 0.0113803 s  
-Darbas su "kursiokai100.txt" užtruko: 0.0166128 s  
-  
-Nuskaitymas iš failo truko: 0.0081304 s  
-Studentų filtravimas (skirstymas) truko: 0.0610808 s  
-įrašymas į failą truko: 0.041581 s  
-Darbas su "kursiokai1000.txt" užtruko: 0.120541 s  
-  
-Nuskaitymas iš failo truko: 0.102246 s  
-Studentų filtravimas (skirstymas) truko: 4.25611 s  
-įrašymas į failą truko: 0.161089 s  
-Darbas su "kursiokai10000.txt" užtruko: 4.52806 s  
-  
-Nuskaitymas iš failo truko: 1.15949 s  
-Studentų filtravimas (skirstymas) truko: 423.546 s  
-įrašymas į failą truko: 1.28583 s  
-Darbas su "kursiokai100000.txt" užtruko: 426.042 s  
-Darbas su STD::DEQUE konteineriu užtruko: 430.734 s  
+Pradedamas darbas naudojant vector konteinerį...
+Nuskaitymas iš failo truko: 0.000997 s
+Studentų filtravimas (skirstymas) truko: 0.000997 s
+Įrašymas į failą truko: 0.006982 s
+Darbas su "kursiokai10.txt" užtruko: 0.009972 s
+
+Nuskaitymas iš failo truko: 0.001994 s
+Studentų filtravimas (skirstymas) truko: 0 s
+Įrašymas į failą truko: 0.007985 s
+Darbas su "kursiokai100.txt" užtruko: 0.010971 s
+
+Nuskaitymas iš failo truko: 0.01496 s
+Studentų filtravimas (skirstymas) truko: 0.003988 s
+Įrašymas į failą truko: 0.020971 s
+Darbas su "kursiokai1000.txt" užtruko: 0.042885 s
+
+Nuskaitymas iš failo truko: 0.130704 s
+Studentų filtravimas (skirstymas) truko: 0.058843 s
+Įrašymas į failą truko: 0.11871 s
+Darbas su "kursiokai10000.txt" užtruko: 0.311194 s
+
+Nuskaitymas iš failo truko: 1.28657 s
+Studentų filtravimas (skirstymas) truko: 0.698146 s
+Įrašymas į failą truko: 1.10906 s
+Darbas su "kursiokai100000.txt" užtruko: 3.1057 s
+Darbas su STD::VECTOR konteineriu užtruko: 3.48375 s
+
+Pradedamas darbas naudojant deque konteinerį...
+Nuskaitymas iš failo truko: 0 s
+Studentų filtravimas (skirstymas) truko: 0 s
+Įrašymas į failą truko: 0.002998 s
+Darbas su "kursiokai10.txt" užtruko: 0.005105 s
+
+Nuskaitymas iš failo truko: 0.001024 s
+Studentų filtravimas (skirstymas) truko: 0 s
+Įrašymas į failą truko: 0.005987 s
+Darbas su "kursiokai100.txt" užtruko: 0.009667 s
+
+Nuskaitymas iš failo truko: 0.011997 s
+Studentų filtravimas (skirstymas) truko: 0.004963 s
+Įrašymas į failą truko: 0.020948 s
+Darbas su "kursiokai1000.txt" užtruko: 0.040909 s
+
+Nuskaitymas iš failo truko: 0.125647 s
+Studentų filtravimas (skirstymas) truko: 0.06583 s
+Įrašymas į failą truko: 0.115613 s
+Darbas su "kursiokai10000.txt" užtruko: 0.311072 s
+
+Nuskaitymas iš failo truko: 1.24068 s
+Studentų filtravimas (skirstymas) truko: 0.808832 s
+Įrašymas į failą truko: 1.10605 s
+Darbas su "kursiokai100000.txt" užtruko: 3.17158 s
+Darbas su STD::DEQUE konteineriu užtruko: 3.54129 s
+
+Pradedamas darbas naudojant list konteinerį...
+Nuskaitymas iš failo truko: 0.000998 s
+Studentų filtravimas (skirstymas) truko: 0 s
+Įrašymas į failą truko: 0.004084 s
+Darbas su "kursiokai10.txt" užtruko: 0.005082 s
+
+Nuskaitymas iš failo truko: 0.001987 s
+Studentų filtravimas (skirstymas) truko: 0 s
+Įrašymas į failą truko: 0.005984 s
+Darbas su "kursiokai100.txt" užtruko: 0.007971 s
+
+Nuskaitymas iš failo truko: 0.012965 s
+Studentų filtravimas (skirstymas) truko: 0.000994 s
+Įrašymas į failą truko: 0.018977 s
+Darbas su "kursiokai1000.txt" užtruko: 0.035907 s
+
+Nuskaitymas iš failo truko: 0.127655 s
+Studentų filtravimas (skirstymas) truko: 0.010305 s
+Įrašymas į failą truko: 0.120679 s
+Darbas su "kursiokai10000.txt" užtruko: 0.264203 s
+
+Nuskaitymas iš failo truko: 1.26362 s
+Studentų filtravimas (skirstymas) truko: 0.103772 s
+Įrašymas į failą truko: 1.10804 s
+Darbas su "kursiokai100000.txt" užtruko: 2.49341 s
+Darbas su STD::LIST konteineriu užtruko: 2.80754 s
 ```  
   
 ### Atspausdintas pavyzdys  
