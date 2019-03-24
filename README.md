@@ -160,7 +160,7 @@ Giedrius     Pavardė17    7.93                   8.40
 Giedrė       Pavardė18    3.40                   3.20     
 ```  
   
-## PAPILDOMA UŽDUOTIS KITAME BRANCH'E 
+## :exclamation: PAPILDOMA UŽDUOTIS KITAME BRANCH'E :exclamation:
   
 ## Programos paleidimas  
 Paleisti programą galima keliais būdais.  
