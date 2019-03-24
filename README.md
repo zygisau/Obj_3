@@ -160,6 +160,8 @@ Giedrius     Pavardė17    7.93                   8.40
 Giedrė       Pavardė18    3.40                   3.20     
 ```  
   
+## PAPILDOMA UŽDUOTIS KITAME BRANCH'E 
+  
 ## Programos paleidimas  
 Paleisti programą galima keliais būdais.  
 - `git clone git@github.com:zygisau/Duomenu-apdorojimas.git` <-- jei naudojate SSH key  
