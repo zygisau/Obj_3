@@ -10,7 +10,7 @@
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
 using std::sort; using std::stoi;
 
-void compareStrings(int& base, string& string) {
+void compareStrings(int& base, string string) {
    if (base < string.size()) {
        base = string.size();
    }
@@ -27,10 +27,10 @@ void printResult (const string choose, const int maxString, const int numberOfSt
        std::streamsize prec = cout.precision();
 
        for (int i = 0; i < numberOfStudents; i++) {
-           cout << setw(maxString+10) << stud[i].name
-           << setw(maxString+10) << stud[i].surname
+           cout << setw(maxString+10) << stud[i].getName()
+           << setw(maxString+10) << stud[i].getSurname()
            << setw(maxString+10) << setprecision(2)
-           << fixed << stud[i].galutinis << setprecision(prec) << endl;
+           << fixed << stud[i].getGalutinis() << setprecision(prec) << endl;
        }
 }
 //
@@ -43,11 +43,11 @@ int main() {
    Student *stud = new Student[numberOfStudents];
    for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
        cout << "Įveskite studento vardą: ";
-       cin >> stud[i].name;
-       compareStrings(maxString, stud[i].name); // Tikrinama įvestis, ieškomas ilgiausias žodis
+       stud[i].setName(cin);
+       compareStrings(maxString, stud[i].getName()); // Tikrinama įvestis, ieškomas ilgiausias žodis
        cout << "Įveskite studento pavardę: ";
-       cin >> stud[i].surname;
-       compareStrings(maxString, stud[i].surname);
+       stud[i].setSurname(cin);
+       compareStrings(maxString, stud[i].getSurname());
        cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
        cin >> isNeededToGenerate;
        cout << endl;
@@ -61,15 +61,13 @@ int main() {
            stud[i].generateGrades();
        } else {
            cout << "Įveskite pažymius" << endl;
-           stud[i].getGrades();
+           stud[i].setGrades();
            cout << "Koks studento egzamino pažymys: ";
-           cin >> stud[i].exam;
-           wasStringGivenInsteadInt(stud[i].exam);
-           while(stud[i].exam > 10) {
+           stud[i].setExam(cin);
+           while(stud[i].getExam() > 10) {
                cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
                cout << "Pažymys: ";
-               cin >> stud[i].exam;
-               wasStringGivenInsteadInt(stud[i].exam);
+               stud[i].setExam(cin);
            }
        }
    }
@@ -84,7 +82,7 @@ int main() {
        cin >> choose;
    }
    for (int i = 0; i < numberOfStudents; i++) {
-       stud[i].getGalutinis(choose);
+       stud[i].setGalutinis();
    }
    cout << endl;
    // Spausdinimas

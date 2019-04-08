@@ -1,8 +1,6 @@
 #include "functions.h"
-#include "readFromFile.h"
-#include "readFromUser.h"
-#include "speedTests.h"
 #include "./classes/Student/Student.h"
+#include "./classes/Timer/Timer.h"
 
 void menu() {
     int numberOfStudents, inputSelection;

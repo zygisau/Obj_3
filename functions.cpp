@@ -1,4 +1,5 @@
 #include "./classes/Student/Student.h"
+#include "./classes/Timer/Timer.h"
 
 // Ieškomas ilgiausias string
 void compareStrings(int& base, const string& string) {
@@ -253,3 +254,230 @@ int checkGrade(string &param, const string& message) {
     return paramInt;
 }
 
+template < typename container >
+void speedTest(container & students, container & vargsiukai, bool strat1) {
+    cout.flush();
+    Timer t;
+    readFromFile(students, vargsiukai, "kursiokai10.txt", strat1);
+    cout << "Darbas su \"kursiokai10.txt\" užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    t.reset();
+    readFromFile(students, vargsiukai, "kursiokai100.txt", strat1);
+    cout << "Darbas su \"kursiokai100.txt\" užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    t.reset();
+    readFromFile(students, vargsiukai, "kursiokai1000.txt", strat1);
+    cout << "Darbas su \"kursiokai1000.txt\" užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    t.reset();
+    readFromFile(students, vargsiukai, "kursiokai10000.txt", strat1);
+    cout << "Darbas su \"kursiokai10000.txt\" užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    t.reset();
+    readFromFile(students, vargsiukai, "kursiokai100000.txt", strat1);
+    cout << "Darbas su \"kursiokai100000.txt\" užtruko: " << t.elapsed() << " s" << endl;
+}
+
+void containerTest() {
+    cout << "Startegija 2" << endl << endl;
+
+    cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
+    Timer t;
+    vector<Student> students;
+    vector<Student> vargsiukai;
+    students.reserve(100000);
+    vargsiukai.reserve(100000);
+    speedTest(students, vargsiukai, false);
+    cout << "Darbas su STD::VECTOR konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
+    t.reset();
+    deque<Student> studentsDeque;
+    deque<Student> vargsiukaiDeque;
+    speedTest(studentsDeque, vargsiukaiDeque, false);
+    cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
+    t.reset();
+    list<Student> studentsList;
+    list<Student> vargsiukaiList;
+    speedTest(studentsList, vargsiukaiList, false);
+    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
+}
+
+// Pirmoji strategija
+void containerTestBadStrat() {
+    cout << "Startegija 1" << endl << endl;
+
+    cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
+    Timer t;
+    vector<Student> students;
+    vector<Student> vargsiukai;
+    students.reserve(100000);
+    vargsiukai.reserve(100000);
+    speedTest(students, vargsiukai, true);
+    cout << "Darbas su STD::VECTOR konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
+    t.reset();
+    list<Student> studentsList;
+    list<Student> vargsiukaiList;
+    speedTest(studentsList, vargsiukaiList, true);
+    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
+    cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
+    t.reset();
+    deque<Student> studentsDeque;
+    deque<Student> vargsiukaiDeque;
+    speedTest(studentsDeque, vargsiukaiDeque, true);
+    cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
+}
+
+template < typename container >
+void readFromFile(container students, container vargsiukai, const string& fileName, bool strat1) {
+    Timer timer;
+    ifstream fd (fileName);
+
+    if (fd.fail()) {
+        cout << "Įvyko klaida atidarant duomenų failą. Prašome įsitikinti, ar failas tinkamoje direktorijoje." << endl;
+        exit(EXIT_FAILURE);
+    }
+
+    string info;
+    int gradeInt, maxString = 0;
+    string gradeStr, message;
+    Student stud;
+
+    std::getline(fd, info);
+
+// Susižinome kiek pažymių gali būti daugiausiai faile
+    std::istringstream reading(info);
+    string testInfo;
+    int gradesCount = -2;
+    while(reading >> testInfo) { // einama, kol pasiekiamas eilutės galas
+        gradesCount++;
+    }
+// Rezervuojame didžiausią galimą pažymių skaičių
+    stud.reserveGrades(gradesCount);
+
+    while (std::getline(fd, info)) { // Pagrindinis nuskaitymas
+        std::istringstream reading(info);
+
+        stud.setName(reading);
+        compareStrings(maxString, stud.getName());
+
+        stud.setSurname(reading);
+        compareStrings(maxString, stud.getSurname());
+
+        // Klaidos žinutė
+        message = "Pažymys studentui " + stud.getName() + " " + stud.getSurname() + " neįrašytas. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
+
+        while (!reading.eof()) { // kol nepasibaigs eilutė
+            reading >> gradeStr;
+            gradeInt = checkGrade(gradeStr, message);
+            stud.pushBackGrades(gradeInt);
+        }
+        stud.checkGradesCount();
+
+        stud.setExamFromGrades();
+
+        students.push_back(stud); //emplace_back
+//        Student *studentPtr = &students.back();
+//        (*studentPtr).name = stud.name;
+//        (*studentPtr).name = stud.surname;
+//        (*studentPtr).galutinis = stud.galutinis;
+
+//        students.push_back(stud); // ŠITIE VARIANTAI NEVEIKIA SU STD::LIST KONTEINERIU. NEĮRAŠO Į KONTEINERĮ NIEKO
+//        students.insert(students.end(), stud);
+        stud = {};
+    }
+    fd.close();
+    cout << "Nuskaitymas iš failo truko: " << timer.elapsed() << " s" << endl;
+
+    timer.reset();
+
+    sortStudents(students);
+
+    if (strat1) {
+        container kietiakai;
+        filterStudentsStrat1(students, vargsiukai, kietiakai);
+        cout << "Studentų filtravimas (skirstymas) truko: " << timer.elapsed() << " s" << endl;
+
+        timer.reset();
+        printToFile(kietiakai, maxString, "kietuoliai.txt");
+        printToFile(vargsiukai, maxString, "vargsiukai.txt");
+        cout << "Įrašymas į failą truko: " << timer.elapsed() << " s" << endl;
+
+        students.clear();
+        kietiakai.clear();
+        vargsiukai.clear();
+    } else {
+        filterStudents(students, vargsiukai);
+        cout << "Studentų filtravimas (skirstymas) truko: " << timer.elapsed() << " s" << endl;
+
+        timer.reset();
+        printToFile(students, maxString, "kietuoliai.txt");
+        printToFile(vargsiukai, maxString, "vargsiukai.txt");
+        cout << "Įrašymas į failą truko: " << timer.elapsed() << " s" << endl;
+
+        students.clear();
+        vargsiukai.clear();
+    }
+}
+
+void readFromUser(const int numberOfStudents, vector<Student>& students) {
+    int maxString = 0; // Ilgiausia simbolių eilutė rezultatų spausdinimui
+
+    for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
+        students.push_back(Student());
+
+        cout << "Įveskite studento vardą: ";
+        students[i].setName(cin);
+        compareStrings(maxString, students[i].getName()); // Tikrinama įvestis, ieškomas ilgiausias žodis
+
+        cout << "Įveskite studento pavardę: ";
+        students[i].setSurname(cin);
+        compareStrings(maxString, students[i].getSurname());
+
+// Ar reikia generuoti studentui pažymius
+        cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
+        int isNeededToGenerate;
+        cin >> isNeededToGenerate;
+        wasStringGivenInsteadInt(isNeededToGenerate);
+        checkIfBinary(isNeededToGenerate, "Įvestas skaičius neatitinka jokio pasirinkimo. Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ");
+
+        if (isNeededToGenerate == 1) {
+            students[i].generateGrades();
+        } else {
+            cout << "Įveskite pažymius. Įveskite ne skaičių, jog baigtumėte įrašymą." << endl;
+            students[i].setGrades();
+
+            cout << "Koks studento egzamino pažymys: ";
+            students[i].setExam(cin);
+
+        }
+
+        students[i].setGalutinis();
+
+        cout << endl;
+    }
+
+    cout << endl;
+    printResult(students, maxString);
+}
