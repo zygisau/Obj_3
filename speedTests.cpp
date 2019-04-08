@@ -1,4 +1,7 @@
 
+#include "./classes/Student/Student.h"
+#include "./classes/Timer/Timer.h"
+
 template < typename container >
 void speedTest(container & students, container & vargsiukai, bool strat1) {
     cout.flush();
@@ -36,8 +39,8 @@ void containerTest() {
 
     cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
     Timer t;
-    vector<student> students;
-    vector<student> vargsiukai;
+    vector<Student> students;
+    vector<Student> vargsiukai;
     students.reserve(100000);
     vargsiukai.reserve(100000);
     speedTest(students, vargsiukai, false);
@@ -47,8 +50,8 @@ void containerTest() {
 
     cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
     t.reset();
-    deque<student> studentsDeque;
-    deque<student> vargsiukaiDeque;
+    deque<Student> studentsDeque;
+    deque<Student> vargsiukaiDeque;
     speedTest(studentsDeque, vargsiukaiDeque, false);
     cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
 
@@ -56,8 +59,8 @@ void containerTest() {
 
    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
    t.reset();
-   list<student> studentsList;
-   list<student> vargsiukaiList;
+   list<Student> studentsList;
+   list<Student> vargsiukaiList;
    speedTest(studentsList, vargsiukaiList, false);
    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
 }
@@ -68,8 +71,8 @@ void containerTestBadStrat() {
 
     cout << "Pradedamas darbas naudojant vector konteinerį..." << endl;
     Timer t;
-    vector<student> students;
-    vector<student> vargsiukai;
+    vector<Student> students;
+    vector<Student> vargsiukai;
     students.reserve(100000);
     vargsiukai.reserve(100000);
     speedTest(students, vargsiukai, true);
@@ -79,8 +82,8 @@ void containerTestBadStrat() {
 
     cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
     t.reset();
-    list<student> studentsList;
-    list<student> vargsiukaiList;
+    list<Student> studentsList;
+    list<Student> vargsiukaiList;
     speedTest(studentsList, vargsiukaiList, true);
     cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
 
@@ -88,8 +91,8 @@ void containerTestBadStrat() {
 
     cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
     t.reset();
-    deque<student> studentsDeque;
-    deque<student> vargsiukaiDeque;
+    deque<Student> studentsDeque;
+    deque<Student> vargsiukaiDeque;
     speedTest(studentsDeque, vargsiukaiDeque, true);
     cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
 }

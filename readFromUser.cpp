@@ -1,18 +1,19 @@
 #include "functions.h"
+#include "./classes/Student/Student.h"
 
-void readFromUser(const int numberOfStudents, vector<student>& students) {
+void readFromUser(const int numberOfStudents, vector<Student>& students) {
     int maxString = 0; // Ilgiausia simbolių eilutė rezultatų spausdinimui
 
     for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
-        students.push_back(student());
+        students.push_back(Student());
 
         cout << "Įveskite studento vardą: ";
-        cin >> students[i].name;
-        compareStrings(maxString, students[i].name); // Tikrinama įvestis, ieškomas ilgiausias žodis
+        students[i].setName(cin);
+        compareStrings(maxString, students[i].getName()); // Tikrinama įvestis, ieškomas ilgiausias žodis
 
         cout << "Įveskite studento pavardę: ";
-        cin >> students[i].surname;
-        compareStrings(maxString, students[i].surname);
+        students[i].setSurname(cin);
+        compareStrings(maxString, students[i].getSurname());
 
 // Ar reikia generuoti studentui pažymius
         cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
@@ -25,22 +26,14 @@ void readFromUser(const int numberOfStudents, vector<student>& students) {
             students[i].generateGrades();
         } else {
             cout << "Įveskite pažymius. Įveskite ne skaičių, jog baigtumėte įrašymą." << endl;
-            students[i].getGrades();
+            students[i].setGrades();
 
             cout << "Koks studento egzamino pažymys: ";
-            cin >> students[i].exam;
+            students[i].setExam(cin);
 
-            wasStringGivenInsteadInt(students[i].exam);
-
-            while(students[i].exam > 10) { // Ar pažymys tinkamas dešimtbalei sistemai
-                cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
-                cout << "Pažymys: ";
-                cin >> students[i].exam;
-                wasStringGivenInsteadInt(students[i].exam);
-            }
         }
 
-        students[i].getGalutinis();
+        students[i].setGalutinis();
 
         cout << endl;
     }

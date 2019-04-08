@@ -1,3 +1,5 @@
+#include "./classes/Student/Student.h"
+#include "./classes/Timer/Timer.h"
 #include "functions.h"
 
 template < typename container >
@@ -13,7 +15,7 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
     string info;
     int gradeInt, maxString = 0;
     string gradeStr, message;
-    student stud;
+    Student stud;
 
     std::getline(fd, info);
 
@@ -25,37 +27,34 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
         gradesCount++;
     }
 // Rezervuojame didžiausią galimą pažymių skaičių
-    stud.grades.reserve(gradesCount);
+    stud.reserveGrades(gradesCount);
 
     while (std::getline(fd, info)) { // Pagrindinis nuskaitymas
         std::istringstream reading(info);
 
-        reading >> stud.name;
-        compareStrings(maxString, stud.name);
+        stud.setName(reading);
+        compareStrings(maxString, stud.getName());
 
-        reading >> stud.surname;
-        compareStrings(maxString, stud.surname);
+        stud.setSurname(reading);
+        compareStrings(maxString, stud.getSurname());
 
         // Klaidos žinutė
-        message = "Pažymys studentui " + stud.name + " " + stud.surname + " neįrašytas. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
+        message = "Pažymys studentui " + stud.getName() + " " + stud.getSurname() + " neįrašytas. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. \n ARBA Įrašykite pažymį: ";
 
         while (!reading.eof()) { // kol nepasibaigs eilutė
             reading >> gradeStr;
             gradeInt = checkGrade(gradeStr, message);
-            stud.grades.push_back(gradeInt);
+            stud.pushBackGrades(gradeInt);
         }
-        checkGradesCount(stud.grades, stud.name, stud.surname);
+        stud.checkGradesCount();
 
-        stud.exam = stud.grades.back();
-        stud.grades.pop_back();
-        stud.getGalutinis();
-        stud.grades.clear();
+        stud.setExamFromGrades();
 
-        students.push_back(student()); //emplace_back
-        student *studentPtr = &students.back();
-        (*studentPtr).name = stud.name;
-        (*studentPtr).name = stud.surname;
-        (*studentPtr).galutinis = stud.galutinis;
+        students.push_back(stud); //emplace_back
+//        Student *studentPtr = &students.back();
+//        (*studentPtr).name = stud.name;
+//        (*studentPtr).name = stud.surname;
+//        (*studentPtr).galutinis = stud.galutinis;
 
 //        students.push_back(stud); // ŠITIE VARIANTAI NEVEIKIA SU STD::LIST KONTEINERIU. NEĮRAŠO Į KONTEINERĮ NIEKO
 //        students.insert(students.end(), stud);

@@ -1,3 +1,5 @@
+#include "./classes/Student/Student.h"
+
 // Ieškomas ilgiausias string
 void compareStrings(int& base, const string& string) {
     if (base < string.size()) {
@@ -15,30 +17,34 @@ void checkIfBinary (int& input, const string& message) {
 }
 
 // Rikiavimas pagal vardą
-bool sortByName(const student & stud1, const student & stud2) {
-    return (stud1.name < stud2.name) ||
-           ((stud1.name == stud2.name) && (stud1.surname > stud2.surname));
+bool sortByName(const Student & stud1, const Student & stud2) {
+    string name1 = stud1.getName();
+    string name2 = stud2.getName();
+    string surname1 = stud1.getSurname();
+    string surname2 = stud2.getSurname();
+    return (name1 < name2) ||
+           ((name1 == name2) && (surname1 > surname2));
 }
 
 // Rikiavimo funkcijos visiems trims konteineriams
-void sortStudents(vector<student> & students) {
+void sortStudents(vector<Student> & students) {
     sort(students.begin(), students.end(), sortByName);
 }
 
-void sortStudents(deque<student> & students) {
+void sortStudents(deque<Student> & students) {
     sort(students.begin(), students.end(), sortByName);
 }
 
-void sortStudents(list<student> & students) {
+void sortStudents(list<Student> & students) {
     students.sort(sortByName);
 }
 
 // Rezultatų išvedimas į konsolę
-void printResult(vector<student>students, int maxString) {
+void printResult(vector<Student>students, int maxString) {
 
     // Visiems studentams suskaičiuojamas galutinis pažymys
     for (auto &student : students) {
-        student.getGalutinis();
+        student.setGalutinis();
     }
 
     sortStudents(students);
@@ -54,10 +60,10 @@ void printResult(vector<student>students, int maxString) {
 
 // Spausdinami studentai
     for (auto &student : students) {
-        cout << setw(maxString+20) << student.name
-             << setw(maxString+20) << student.surname
-             << setw(maxString+20) << setprecision(2) << fixed << student.galutinis
-             << setw(maxString+20) << setprecision(2) << fixed << student.galutinisMedian
+        cout << setw(maxString+20) << student.getName()
+             << setw(maxString+20) << student.getSurname()
+             << setw(maxString+20) << setprecision(2) << fixed << student.getGalutinis()
+             << setw(maxString+20) << setprecision(2) << fixed << student.getGalutinisMedian()
              << endl;
     }
 // Atstatomas tikslumas
@@ -85,10 +91,10 @@ void printToFile (const container & students, int maxString, string fileName) {
 
 // Spausdinami studentai
     for (auto &student : students) {
-        file << setw(maxString + 20) << student.name
-             << setw(maxString + 20) << student.surname
-             << setw(maxString + 20) << setprecision(2) << fixed << student.galutinis
-             << setw(maxString + 20) << setprecision(2) << fixed << student.galutinisMedian
+        file << setw(maxString + 20) << student.getName()
+             << setw(maxString + 20) << student.getSurname()
+             << setw(maxString + 20) << setprecision(2) << fixed << student.getGalutinis()
+             << setw(maxString + 20) << setprecision(2) << fixed << student.getGalutinisMedian()
              << endl;
     }
 
@@ -98,18 +104,18 @@ void printToFile (const container & students, int maxString, string fileName) {
 }
 
 // Filtruojami studentai į du tipus: vargsiukus ir studentus (negavusius skolos) visais konteineriais pagal antrąją strategiją
-void filterStudents(list<student>& students, list<student>& vargsiukai) {
-    for (list<student>::iterator it = students.begin(); it != students.end(); ++it) {
-        if ((*it).vargsiukas) {
+void filterStudents(list<Student>& students, list<Student>& vargsiukai) {
+    for (list<Student>::iterator it = students.begin(); it != students.end(); ++it) {
+        if ((*it).isVargsiukas()) {
             vargsiukai.push_back((*it));
             students.erase(it);
         }
     }
 }
 
-void filterStudents (deque<student>& students, deque<student>& vargsiukai) {
+void filterStudents (deque<Student>& students, deque<Student>& vargsiukai) {
     auto bound = std::stable_partition(students.begin(), students.end(),
-                                       [&](const auto& x) { return !(x.vargsiukas); });
+                                       [&](const auto& x) { return !(x.getVargsiukas()); });
 
     vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
                       std::make_move_iterator(students.end()));
@@ -127,9 +133,9 @@ void filterStudents (deque<student>& students, deque<student>& vargsiukai) {
 //    }
 }
 
-void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
+void filterStudents (vector<Student>& students, vector<Student>& vargsiukai) {
     auto bound = std::stable_partition(students.begin(), students.end(),
-                                   [&](const auto& x) { return !(x.vargsiukas); });
+                                   [&](const auto& x) { return !(x.getVargsiukas()); });
 
     vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
                   std::make_move_iterator(students.end()));
@@ -148,9 +154,9 @@ void filterStudents (vector<student>& students, vector<student>& vargsiukai) {
 }
 
 // Filtruojami studentai į du tipus: vargsiukus ir studentus (negavusius skolos) visais konteineriais pagal pirmąją strategiją
-void filterStudentsStrat1 (list<student>& students, list<student>& vargsiukai, list<student>& kietiakai) {
-    for (list<student>::iterator it = students.begin(); it != students.end(); ++it) {
-        if ((*it).vargsiukas) {
+void filterStudentsStrat1 (list<Student>& students, list<Student>& vargsiukai, list<Student>& kietiakai) {
+    for (list<Student>::iterator it = students.begin(); it != students.end(); ++it) {
+        if ((*it).isVargsiukas()) {
             vargsiukai.push_back((*it));
         } else {
             kietiakai.push_back((*it));
@@ -158,10 +164,10 @@ void filterStudentsStrat1 (list<student>& students, list<student>& vargsiukai, l
     }
 }
 
-void filterStudentsStrat1 (deque<student>& students, deque<student>& vargsiukai, deque<student>& kietiakai) {
+void filterStudentsStrat1 (deque<Student>& students, deque<Student>& vargsiukai, deque<Student>& kietiakai) {
     int ind = 0;
     for (auto &stud : students) {
-        if (stud.vargsiukas) {
+        if (stud.isVargsiukas()) {
             vargsiukai.push_back(stud);
         } else {
             kietiakai.push_back(stud);
@@ -170,10 +176,10 @@ void filterStudentsStrat1 (deque<student>& students, deque<student>& vargsiukai,
     }
 }
 
-void filterStudentsStrat1 (vector<student>& students, vector<student>& vargsiukai, vector<student>& kietiakai) {
+void filterStudentsStrat1 (vector<Student>& students, vector<Student>& vargsiukai, vector<Student>& kietiakai) {
     int ind = 0;
     for (auto &stud : students) {
-        if (stud.vargsiukas) {
+        if (stud.isVargsiukas()) {
             vargsiukai.push_back(stud);
         } else {
             kietiakai.push_back(stud);
@@ -247,27 +253,3 @@ int checkGrade(string &param, const string& message) {
     return paramInt;
 }
 
-// Ar pažymių užtenka, nes paskutinis pažymys visada bus egzaminas
-void checkGradesCount(vector<int>& grades, const string& fname, const string& lname) {
-    int grade;
-
-    if (grades.size() <= 1) {
-        cout << "Studentui " << fname << " " << lname << " trūksta pažymių, įrašykite dar egzamino pažymį. \nJei vykdote spartos analizę, ši klaida gali sugadinti rezultatus. Kad to išvengtumėte, rekomenduojame dar kartą patikrinti, ar duomenų faile nėra klaidų ir paleisti programą iš naujo. ARBA \n";
-
-        // Prašoma įvesti du pažymius
-        for (int i = 1; i <= 2; i++) {
-            cout << "Įrašykite pažymį: ";
-            cin >> grade;
-            wasStringGivenInsteadInt(grade);
-
-            while (grade > 10) { // Ar atitinka dešimtbalę sistemą?
-                cout << "Pažymys per didelis dešimtbalei sistemai." << endl;
-                cout << "Pažymys: ";
-                cin >> grade;
-                wasStringGivenInsteadInt(grade);
-            }
-
-            grades.push_back(grade);
-        }
-    }
-}

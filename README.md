@@ -3,29 +3,29 @@
 ![version][version-badge]  
 ## Programos paskirtis  
 Programa simuliuoja studentų pažymių sistemą.   
-  
+
 Vartotojas gali pasirinkti, ar studentus su pažymiais nuskaitys iš failo, ar ranka.  
-  
+
 ### Įrašymas ranka  
 Pasirinkus įrašymą ranka, prašoma suvesti studento duomenis (vardą, pavardę, pažymius, egzamino pažymį ir t. t.). Viską užpildžius, į failą gaunama lentelė su studentų rezultatais.  
-  
+
 ### Pažymių generavimas  
 Galima pasirinkti pažymius sugeneruoti. Tokiu atveju prašoma įvesti, kiek pažymių generuoti.  
-  
+
 ### Įrašymas iš failo  
 Failas, į kurį vartotojas gali surašyti studentus bei jų pažymius, pavadinimu – "kursiokai.txt".  
 Iš jo nuskaitomi studentai.  
-  
+
 ### Rezultatai  
 Rezultatai skaičiuojami pagal formulę:   
-  
+
 ```shell   
 galutinis = 0.4 * dauginamasis + 0.6 * egzaminas  
-```  
+```
 "dauginamasis" gali būti pažymių vidurkis arba mediana. Atspausdinami abudu variantai.  
-  
+
 Taip pat yra galimybė pasirinkti, jog pažymiai būtų sugeneruoti atsitiktinai.  
-  
+
 ### Greičio matavimas  
 Taip pat galima pasirinkti sugeneruoti failus:  
 - kursiokai10.txt – turintis 10 studentų  
@@ -48,18 +48,18 @@ Darbas su "kursiokai100.txt" užtruko: 0.016956 s
 Darbas su "kursiokai1000.txt" užtruko: 0.059678 s
 Darbas su "kursiokai10000.txt" užtruko: 0.320595 s
 Darbas su "kursiokai100000.txt" užtruko: 3.16505 s
-```  
-  
+```
+
 ### Konteinerių testavimas  
-  
+
 Testuojami šie konteineriai  
-  
+
 - std::vector  
 - std::list  
 - std::deque  
   
 #### Rezultatas  
-  
+
 ```shell  
 ...  
 Ar norite atlikti konteinerių testavimą? (1 - taip, 0 - ne)  
@@ -145,8 +145,8 @@ Studentų filtravimas (skirstymas) truko: 0.103772 s
 Įrašymas į failą truko: 1.10804 s
 Darbas su "kursiokai100000.txt" užtruko: 2.49341 s
 Darbas su STD::LIST konteineriu užtruko: 2.80754 s
-```  
-  
+```
+
 ### Atspausdintas pavyzdys  
 ```shell  
 Vardas       Pavardė      Galutinis (Vid.)       Galutinis (Med.)         
@@ -158,10 +158,10 @@ Emilis       Pavardė9     2.20                   2.00
 Gabija       Pavardė15    5.80                   5.80  
 Giedrius     Pavardė17    7.93                   8.40  
 Giedrė       Pavardė18    3.40                   3.20     
-```  
-  
+```
+
 ## :exclamation: PAPILDOMA UŽDUOTIS KITAME BRANCH'E :exclamation:
-  
+
 ## Programos paleidimas  
 Paleisti programą galima keliais būdais.  
 - `git clone git@github.com:zygisau/Duomenu-apdorojimas.git` <-- jei naudojate SSH key  
@@ -174,10 +174,78 @@ Yra du *executables*:
   
   
 ## Versijų istorija (changelog)  
-  
- ### [v0.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.1) - (2019-02-17)  
+
+### [v1.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1) - (2019-03-23)  
+
   **Koreguota**  
+- Sutvarkytas pažymių generavimas ir lygiavimas.
+
+### [v1.0](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.0) - (2019-03-17)  
+
+  **Koreguota**  
+
+- Pakoreguotas "READ_ME.md" failas.  
+- Pakeistas studentų filtravimas, kai naudojamas std::vector konteineris. Dabar veikia greičiau.
+- Pridėta galimybė paleisti iš CMake failo abidvi programos realizacijas
+- Ištrintas makefile (CMake universalesnis).
   
+### [v0.5.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5.1) - (2019-03-13)  
+
+  **Koreguota**  
+- Pridėta apsauga, jei duomenų faile būtų pateiktas ne skaičius arba per mažai pažymių.  
+  
+### [v0.5](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5) - (2019-03-11)  
+
+  **Koreguota**  
+
+- Pakoreguotas "READ_ME.md" failas.  
+  
+   **Pridėta**  
+  
+- Pridėtas konteinerių testavimas.  
+  
+### [v0.4.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4.1) - (2019-03-04)  
+
+  **Koreguota**  
+
+ - Pridėta biblioteka "numeric", naudojama funkcijoje. Programa veiks naudojant visus kompiliatorius.  
+
+### [v0.4](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4) - (2019-03-03)  
+
+  **Koreguota**  
+
+ - Pridėta galimybė atlikti spartos analizę bei generuoti tekstinius failus.  
+ - Pakoreguotas "READ_ME.md" failas.  
+  
+   **Pridėta**  
+  
+ - Pridėtas CMakeLists.txt failas.  
+
+### [v0.3](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.3) - (2019-02-23)  
+
+  **Koreguota**  
+
+ - Perkurta programos struktūra.  
+ - Pakoreguotas "READ_ME.md" failas.  
+  
+   **Pridėta**  
+  
+ - Pridėti headers failai.  
+
+### [v0.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.2) - (2019-02-17)  
+
+  **Koreguota**  
+
+ - README.md faile pridėtas versijos aprašymas.  
+  
+   **Pridėta**  
+  
+ - Pakeista source_vektoriai.cpp programa taip, jog galima būtų duomenis kelti iš failo bei pakeistas vaizdavimo būdas.  
+ - Sukurtas duomenų apie studentus failas "kursiokai.txt".  
+
+### [v0.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.1) - (2019-02-17)  
+  **Koreguota**  
+
  - Sutvarkytas README.md failas.  
  - Papildytas .gitignore failas.  
   
@@ -185,73 +253,5 @@ Yra du *executables*:
   
  - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.  
  - Sukurtas makefile.  
-  
- ### [v0.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.2) - (2019-02-17)  
-  
-  **Koreguota**  
-  
- - README.md faile pridėtas versijos aprašymas.  
-  
-   **Pridėta**  
-  
- - Pakeista source_vektoriai.cpp programa taip, jog galima būtų duomenis kelti iš failo bei pakeistas vaizdavimo būdas.  
- - Sukurtas duomenų apie studentus failas "kursiokai.txt".  
-  
-### [v0.3](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.3) - (2019-02-23)  
-  
-  **Koreguota**  
-  
- - Perkurta programos struktūra.  
- - Pakoreguotas "READ_ME.md" failas.  
-  
-   **Pridėta**  
-  
- - Pridėti headers failai.  
-  
-### [v0.4](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4) - (2019-03-03)  
-  
-  **Koreguota**  
-  
- - Pridėta galimybė atlikti spartos analizę bei generuoti tekstinius failus.  
- - Pakoreguotas "READ_ME.md" failas.  
-  
-   **Pridėta**  
-  
- - Pridėtas CMakeLists.txt failas.  
-  
-### [v0.4.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.4.1) - (2019-03-04)  
-  
-  **Koreguota**  
-  
- - Pridėta biblioteka "numeric", naudojama funkcijoje. Programa veiks naudojant visus kompiliatorius.  
-  
-### [v0.5](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5) - (2019-03-11)  
-  
-  **Koreguota**  
-  
-- Pakoreguotas "READ_ME.md" failas.  
-  
-   **Pridėta**  
-  
-- Pridėtas konteinerių testavimas.  
-  
-### [v0.5.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v0.5.1) - (2019-03-13)  
-  
-  **Koreguota**  
-- Pridėta apsauga, jei duomenų faile būtų pateiktas ne skaičius arba per mažai pažymių.  
-  
-### [v1.0](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.0) - (2019-03-17)  
-  
-  **Koreguota**  
-  
-- Pakoreguotas "READ_ME.md" failas.  
-- Pakeistas studentų filtravimas, kai naudojamas std::vector konteineris. Dabar veikia greičiau.
-- Pridėta galimybė paleisti iš CMake failo abidvi programos realizacijas
-- Ištrintas makefile (CMake universalesnis).
-  
-### [v1.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1) - (2019-03-23)  
-  
-  **Koreguota**  
-- Sutvarkytas pažymių generavimas ir lygiavimas.
 
 [version-badge]: https://img.shields.io/badge/version-1.1-yellow.svg

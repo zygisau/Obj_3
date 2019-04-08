@@ -1,8 +1,8 @@
-#include "header.h"
 #include "functions.h"
-#include "readFromFile.cpp"
-#include "readFromUser.cpp"
+#include "readFromFile.h"
+#include "readFromUser.h"
 #include "speedTests.h"
+#include "./classes/Student/Student.h"
 
 void menu() {
     int numberOfStudents, inputSelection;
@@ -53,8 +53,8 @@ void menu() {
     }
 
 // Sukuriami pagrindiniai kintamieji
-    vector<student> students;
-    vector<student> vargsiukai;
+    vector<Student> students;
+    vector<Student> vargsiukai;
 
 // Ar bus pažymiai vedami ranka?
     cout << "Įvedinėsite duomenis ranka ar iš failo? (1 - ranka, 0 - iš failo)";
