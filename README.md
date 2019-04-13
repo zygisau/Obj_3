@@ -160,7 +160,7 @@ Giedrius     Pavardė17    7.93                   8.40
 Giedrė       Pavardė18    3.40                   3.20     
 ```
 
-## :exclamation: PAPILDOMA UŽDUOTIS KITAME BRANCH'E :exclamation:
+## :exclamation:  [(Antrosios užduoties) PAPILDOMA UŽDUOTIS](https://github.com/zygisau/Duomenu-apdorojimas/tree/Papildoma_u%C5%BEduotis) :exclamation:
 
 ## Programos paleidimas  
 Paleisti programą galima keliais būdais.  
@@ -174,6 +174,61 @@ Yra du *executables*:
   
   
 ## Versijų istorija (changelog)  
+
+### [v1.1.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1.1) - (2019-04-13)  
+
+  **Koreguota**  
+
+- Struct Studentas pakeistas į class
+
+- Numigruotas kodas į kitą repozitoriją
+
+**Pridėta**  
+
+- Pridėtas klasės "interfeisas"
+- Atlikta struktūros ir klasės spartos analizė
+
+  ```
+  CLASS
+  Darbas su "kursiokai10.txt" užtruko: 0.025782 s
+  Darbas su "kursiokai100.txt" užtruko: 0.020672 s
+  Darbas su "kursiokai1000.txt" užtruko: 0.140054 s
+  Darbas su "kursiokai10000.txt" užtruko: 0.444667 s
+  Darbas su "kursiokai100000.txt" užtruko: 4.49092 s
+  
+  STRUCT
+  Darbas su "kursiokai10.txt" užtruko: 0.029886 s
+  Darbas su "kursiokai100.txt" užtruko: 0.029737 s
+  Darbas su "kursiokai1000.txt" užtruko: 0.133271 s
+  Darbas su "kursiokai10000.txt" užtruko: 0.485518 s
+  Darbas su "kursiokai100000.txt" užtruko: 3.68249 s
+  ```
+
+- Atlikta programos po skirtingų optimizavimo lygių spartos analizė
+
+  ```
+  FLAGS
+  -01
+  Darbas su "kursiokai10.txt" užtruko: 0.030733 s
+  Darbas su "kursiokai100.txt" užtruko: 0.025392 s
+  Darbas su "kursiokai1000.txt" užtruko: 0.056188 s
+  Darbas su "kursiokai10000.txt" užtruko: 0.316079 s
+  Darbas su "kursiokai100000.txt" užtruko: 2.92527 s
+
+  -02
+  Darbas su "kursiokai10.txt" užtruko: 0.0124 s
+  Darbas su "kursiokai100.txt" užtruko: 0.049105 s
+  Darbas su "kursiokai1000.txt" užtruko: 0.196909 s
+  Darbas su "kursiokai10000.txt" užtruko: 0.441442 s
+  Darbas su "kursiokai100000.txt" užtruko: 3.5369 s
+
+  -03
+  Darbas su "kursiokai10.txt" užtruko: 0.013888 s
+  Darbas su "kursiokai100.txt" užtruko: 0.009392 s
+  Darbas su "kursiokai1000.txt" užtruko: 0.045632 s
+  Darbas su "kursiokai10000.txt" užtruko: 0.304054 s
+  Darbas su "kursiokai100000.txt" užtruko: 2.95109 s
+  ```
 
 ### [v1.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1) - (2019-03-23)  
 
