@@ -309,4 +309,4 @@ Yra du *executables*:
  - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.  
  - Sukurtas makefile.  
 
-[version-badge]: https://img.shields.io/badge/version-1.1-yellow.svg
+[version-badge]: https://img.shields.io/badge/version-1.1.1-yellow.svg
