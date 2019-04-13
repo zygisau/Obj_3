@@ -175,7 +175,7 @@ Yra du *executables*:
   
 ## Versijų istorija (changelog)  
 
-### [v1.1.1](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1.1) - (2019-04-13)  
+### [v1.1.1](https://github.com/zygisau/Obj_3/releases/tag/v1.1.1) - (2019-04-13)  
 
   **Koreguota**  
 
