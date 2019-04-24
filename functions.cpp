@@ -116,7 +116,7 @@ void filterStudents(list<Student>& students, list<Student>& vargsiukai) {
 
 void filterStudents (deque<Student>& students, deque<Student>& vargsiukai) {
     auto bound = std::stable_partition(students.begin(), students.end(),
-                                       [&](const auto& x) { return !(x.getVargsiukas()); });
+                                       [&](const auto& x) { return !(x.isVargsiukas()); });
 
     vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
                       std::make_move_iterator(students.end()));
@@ -136,7 +136,7 @@ void filterStudents (deque<Student>& students, deque<Student>& vargsiukai) {
 
 void filterStudents (vector<Student>& students, vector<Student>& vargsiukai) {
     auto bound = std::stable_partition(students.begin(), students.end(),
-                                   [&](const auto& x) { return !(x.getVargsiukas()); });
+                                   [&](const auto& x) { return !(x.isVargsiukas()); });
 
     vargsiukai.insert(vargsiukai.end(), std::make_move_iterator(bound),
                   std::make_move_iterator(students.end()));

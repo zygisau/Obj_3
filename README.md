@@ -175,6 +175,16 @@ Yra du *executables*:
   
 ## Versijų istorija (changelog)  
 
+### [v1.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1.1) - (2019-04-13)  
+
+  **Koreguota**  
+
+- Struct Studentas pakeistas į class
+
+- Numigruotas kodas į kitą repozitoriją
+
+**Pridėta** 
+
 ### [v1.1.1](https://github.com/zygisau/Obj_3/releases/tag/v1.1.1) - (2019-04-13)  
 
   **Koreguota**  

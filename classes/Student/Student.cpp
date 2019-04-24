@@ -160,3 +160,46 @@ void Student::setExamFromGrades() {
     setGalutinis();
     grades.clear();
 }
+
+Student& Student::operator=(const Student& stud) {
+    // Savęs priskyrimo aptikimas
+    if (&stud == this) return *this;
+
+    // Atlaisviname seną atmintį (jei buvo)
+    grades.clear();
+
+    // Nukopijuojame naujus elementus
+    grades = stud.getGrades();
+    name = stud.getName();
+    surname = stud.getSurname();
+    exam = stud.getExam();
+    galutinis = stud.getGalutinis();
+    galutinisMedian = stud.getGalutinisMedian();
+    numberOfGrades = stud.getNumberOfGrades();
+    vargsiukas = stud.isVargsiukas();
+    return *this;
+}
+
+bool Student::operator>(const Student& stud) {
+    return galutinis > stud.getGalutinis();
+}
+
+bool Student::operator<(const Student& stud) {
+    return galutinis < stud.getGalutinis();
+}
+
+bool Student::operator==(const Student& stud) {
+    return galutinis == stud.getGalutinis();
+}
+
+bool Student::operator!=(const Student& stud) {
+    return galutinis != stud.getGalutinis();
+}
+
+bool Student::operator>=(const Student& stud) {
+    return galutinis >= stud.getGalutinis();
+}
+
+bool Student::operator<=(const Student& stud) {
+    return galutinis <= stud.getGalutinis();
+}
