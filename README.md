@@ -175,15 +175,15 @@ Yra du *executables*:
   
 ## Versijų istorija (changelog)  
 
-### [v1.2](https://github.com/zygisau/Duomenu-apdorojimas/releases/tag/v1.1.1) - (2019-04-13)  
+### [v1.2](https://github.com/zygisau/Obj_3/releases/tag/v1.2) - (2019-04-...)  
 
   **Koreguota**  
 
-- Struct Studentas pakeistas į class
-
-- Numigruotas kodas į kitą repozitoriją
+- Pakeistas funkcijos pavadinimas getVargsiukas() -> isVargsiukas()
 
 **Pridėta** 
+
+- Pridėtas operatorių persidengimas: Rule of three, >, >=, <, <=, ==, !=
 
 ### [v1.1.1](https://github.com/zygisau/Obj_3/releases/tag/v1.1.1) - (2019-04-13)  
 
