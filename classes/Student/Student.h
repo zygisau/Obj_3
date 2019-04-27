@@ -62,7 +62,7 @@ public:
 // Pažymių generavimas studentui
     void generateGrades();
 
-// Operators overloading
+// Operatorių persidengimas
     bool operator>(const Student& stud);
     bool operator<(const Student& stud);
     bool operator==(const Student& stud);

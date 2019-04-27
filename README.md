@@ -175,9 +175,9 @@ Yra du *executables*:
   
 ## Versijų istorija (changelog)  
 
-### [v1.2](https://github.com/zygisau/Obj_3/releases/tag/v1.2) - (2019-04-...)  
+### [v1.2](https://github.com/zygisau/Obj_3/releases/tag/v1.2) - (2019-04-27)  
 
-  **Koreguota**  
+**Koreguota**  
 
 - Pakeistas funkcijos pavadinimas getVargsiukas() -> isVargsiukas()
 
@@ -187,7 +187,7 @@ Yra du *executables*:
 
 ### [v1.1.1](https://github.com/zygisau/Obj_3/releases/tag/v1.1.1) - (2019-04-13)  
 
-  **Koreguota**  
+**Koreguota**  
 
 - Struct Studentas pakeistas į class
 
