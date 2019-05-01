@@ -6,14 +6,13 @@
 #define DUOMENU_APDOROJIMAS_STUDENT_H
 
 #include "../../includes.h"
+#include "../Human/Human.h"
 
 // Funkcija, kurios reikia klasėje esančioms funkcijoms, taigi įdėta čia
 void wasStringGivenInsteadInt(int &param);
 
-class Student {
+class Student : public Human {
 private:
-    string name = "Vardenis";
-    string surname = "Pavardenis";
     vector<int> grades;
     int exam=0;
     double galutinis=0; // Galutinis studento pažymys
@@ -22,24 +21,20 @@ private:
     bool vargsiukas=false;
 
 public:
-    Student() : name("Vardenis"), surname("Pavardenis"), exam(0), galutinis(0), galutinisMedian(0), numberOfGrades(0), vargsiukas(false) {}
-    Student(const Student& stud) : name(stud.name), surname(stud.surname), grades(stud.grades), exam(stud.exam), galutinis(stud.galutinis), galutinisMedian(stud.galutinisMedian), numberOfGrades(stud.numberOfGrades), vargsiukas(stud.vargsiukas) {}
+    Student() : Human("Vardenis", "Pavardenis"), exam(0), galutinis(0), galutinisMedian(0), numberOfGrades(0), vargsiukas(false) {}
+    Student(const Student& stud) : Human(stud.name, stud.surname), grades(stud.grades), exam(stud.exam), galutinis(stud.galutinis), galutinisMedian(stud.galutinisMedian), numberOfGrades(stud.numberOfGrades), vargsiukas(stud.vargsiukas) {}
     ~Student() { grades.clear(); }
     // getters
-    string getName() const { return name; }
-    string getSurname() const { return surname; }
     double getGalutinis() const {return galutinis; }
     double getGalutinisMedian() const {return galutinisMedian; }
     int getNumberOfGrades() const {return numberOfGrades; }
     bool isVargsiukas() const { return vargsiukas; }
+    vector<int> getGrades() const { return grades; }
     // setters
-    void setName( istream & stream ) { stream >> name; }
-    void setSurname( istream & stream ) { stream >> surname; }
     void setExam( istream & stream );
     int getExam() const { return exam; }
     void reserveGrades( int & number) { grades.reserve(number); }
     void pushBackGrades( int & grade ) { grades.push_back(grade); }
-    vector<int> getGrades() const { return grades; }
 
 // Nustatomas egzamino pažymys, panaikinant
     void setExamFromGrades();
