@@ -22,7 +22,10 @@ private:
 
 public:
     Student() : Human("Vardenis", "Pavardenis"), exam(0), galutinis(0), galutinisMedian(0), numberOfGrades(0), vargsiukas(false) {}
-    Student(const Student& stud) : Human(stud.name, stud.surname), grades(stud.grades), exam(stud.exam), galutinis(stud.galutinis), galutinisMedian(stud.galutinisMedian), numberOfGrades(stud.numberOfGrades), vargsiukas(stud.vargsiukas) {}
+    Student(const Student& stud) : Human(stud.name, stud.surname), grades(stud.grades), exam(stud.exam),
+        galutinis(stud.galutinis), galutinisMedian(stud.galutinisMedian), numberOfGrades(stud.numberOfGrades), vargsiukas(stud.vargsiukas) {}
+    Student(Student&& stud) noexcept : Human(stud.name, stud.surname), grades(stud.grades), exam(stud.exam),
+        galutinis(stud.galutinis), galutinisMedian(stud.galutinisMedian), numberOfGrades(stud.numberOfGrades), vargsiukas(stud.vargsiukas) {}
     ~Student() { grades.clear(); }
     // getters
     double getGalutinis() const {return galutinis; }
@@ -65,6 +68,7 @@ public:
     bool operator>=(const Student& stud);
     bool operator<=(const Student& stud);
     Student& operator=(const Student& stud);
+    Student& operator=(Student&& stud) noexcept;
 };
 
 #endif //DUOMENU_APDOROJIMAS_STUDENT_H

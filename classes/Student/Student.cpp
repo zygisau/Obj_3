@@ -180,6 +180,24 @@ Student& Student::operator=(const Student& stud) {
     return *this;
 }
 
+Student& Student::operator=(Student&& stud) noexcept{
+    // Savęs priskyrimo aptikimas
+    if(&stud == this )
+        return *this;
+
+    grades.clear(); // Atlaisviname atmintį
+    name = stud.name; // Atnaujiname atmintį
+    surname = stud.surname;
+    exam = stud.exam;
+    galutinis = stud.galutinis;
+    galutinisMedian = stud.galutinisMedian;
+    numberOfGrades = stud.numberOfGrades;
+    vargsiukas = stud.vargsiukas;
+    grades = std::move(stud.grades);
+
+    return *this;
+}
+
 bool Student::operator>(const Student& stud) {
     return galutinis > stud.getGalutinis();
 }

@@ -11,8 +11,8 @@ class Human {
 protected:
     string name = "Vardenis";
     string surname = "Pavardenis";
-public:
     Human(const string inputName, const string inputSurname) : name(inputName), surname(inputSurname) {}
+public:
     string getName() const { return name; }
     string getSurname() const { return surname; }
     void setName( istream & stream ) { stream >> name; }
