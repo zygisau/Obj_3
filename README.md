@@ -175,6 +175,17 @@ Yra du *executables*:
   
 ## Versijų istorija (changelog)  
 
+
+### [v1.5](https://github.com/zygisau/Obj_3/releases/tag/v1.5) - (2019-05-05)  
+
+**Koreguota**  
+
+- Iš buvusios studento klasės išvesta abstrakti bazinė žmogaus klasė
+
+**Pridėta** 
+
+- Realizuotas rule of 5
+
 ### [v1.2](https://github.com/zygisau/Obj_3/releases/tag/v1.2) - (2019-04-27)  
 
 **Koreguota**  
