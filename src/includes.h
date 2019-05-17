@@ -7,7 +7,8 @@
 #include <algorithm>
 #include <cmath>
 #include <vector>
-//#include "../Vector/vector.h"
+using std::vector;
+//#include "../../Vector/vector.h"
 #include <random>
 #include <ctime>
 #include <fstream>
@@ -21,6 +22,6 @@
 #include <istream>
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
-using std::sort; using std::stoi; using std::vector; using std::ifstream; using std::list; using std::deque; using std::istream;
+using std::sort; using std::stoi; using std::ifstream; using std::list; using std::deque; using std::istream;
 
 #endif

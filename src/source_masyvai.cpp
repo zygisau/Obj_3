@@ -5,7 +5,7 @@
 #include <cmath>
 #include <random>
 #include <ctime>
-#include "./classes/Student/Student.h"
+#include "../classes/Student/Student.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
 using std::sort; using std::stoi;

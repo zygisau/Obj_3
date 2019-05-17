@@ -50,7 +50,8 @@ float Student::setAverage() {
     int sum = 0;
     float average;
 
-    sum = accumulate(grades.begin(), grades.end(), 0);
+    sum = std::accumulate(grades.begin(), grades.end(), 0,
+                     [] (const int acc, const int grade) { return acc + grade; });
     average = (float)sum/grades.size();
 
     return average;
@@ -90,11 +91,11 @@ void Student::setGalutinis() {
 
 // Pažymių generavimas studentui
 void Student::generateGrades() {
-    cout << "Kiek pažymių generuoti? (daugiausiai galima " << grades.max_size() << ") ";
+    cout << "Kiek pažymių generuoti? "/*(daugiausiai galima " << grades.max_size() << ") "*/;
     cin >> numberOfGrades;
     wasStringGivenInsteadInt(numberOfGrades);
     while (numberOfGrades == 0) {
-        cout << "Turi būti įrašytas bent vienas pažymys. Kiek pažymių generuoti? (daugiausiai galima " << grades.max_size() << ") ";
+        cout << "Turi būti įrašytas bent vienas pažymys. Kiek pažymių generuoti? "/*(daugiausiai galima " << grades.max_size() << ") "*/;
         cin >> numberOfGrades;
         wasStringGivenInsteadInt(numberOfGrades);
     }

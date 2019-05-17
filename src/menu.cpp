@@ -61,7 +61,7 @@ void menu() {
     checkIfBinary(inputSelection, "Įvestas skaičius neatitinka jokio pasirinkimo. Įvedinėsite duomenis ranka ar iš failo? (1 - ranka, 0 - iš failo) ");
 
     if (inputSelection == 1) {
-        cout << "Kiek studentų įvedinėsite (didžiausia galima reikšmė - " << students.max_size() << "): ";
+        cout << "Kiek studentų įvedinėsite "/*(didžiausia galima reikšmė - " << students.max_size() << "): "*/;
         cin >> numberOfStudents;
         wasStringGivenInsteadInt(numberOfStudents);
 
