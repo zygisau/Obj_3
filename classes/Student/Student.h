@@ -33,9 +33,12 @@ public:
     int getNumberOfGrades() const {return numberOfGrades; }
     bool isVargsiukas() const { return vargsiukas; }
     vector<int> getGrades() const { return grades; }
+    int getExam() const { return exam; }
     // setters
     void setExam( istream & stream );
-    int getExam() const { return exam; }
+    void setName(const string & name) { this->name = name; }
+    void setSurname(const string & surname) { this->surname = surname; }
+    void setVargsiukas(const bool & vargsiukasState) { vargsiukas = vargsiukasState; }
     void reserveGrades( int & number) { grades.reserve(number); }
     void pushBackGrades( int & grade ) { grades.push_back(grade); }
 
@@ -56,6 +59,8 @@ public:
 
 // Apskaičiuoja abu galutinius pažymius
     void setGalutinis();
+    void setGalutinis(const double & paz) { galutinis = paz; }
+    void setGalutinisMedian(const double & paz) { galutinisMedian = paz; }
 
 // Pažymių generavimas studentui
     void generateGrades();

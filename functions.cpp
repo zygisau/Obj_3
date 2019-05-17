@@ -309,12 +309,13 @@ void containerTest() {
 
     cout << endl;
 
-    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
-    t.reset();
-    list<Student> studentsList;
-    list<Student> vargsiukaiList;
-    speedTest(studentsList, vargsiukaiList, false);
-    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
+    // FIXME: List is not pushing its values
+//    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
+//    t.reset();
+//    list<Student> studentsList = {};
+//    list<Student> vargsiukaiList = {};
+//    speedTest(studentsList, vargsiukaiList, false);
+//    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
 }
 
 // Pirmoji strategija
@@ -350,7 +351,7 @@ void containerTestBadStrat() {
 }
 
 template < typename container >
-void readFromFile(container students, container vargsiukai, const string& fileName, bool strat1) {
+void readFromFile(container &students, container &vargsiukai, const string& fileName, bool strat1) {
     Timer timer;
     ifstream fd (fileName);
 
@@ -362,7 +363,7 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
     string info;
     int gradeInt, maxString = 0;
     string gradeStr, message;
-    Student stud;
+    Student stud = Student();
 
     std::getline(fd, info);
 
@@ -379,10 +380,10 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
     while (std::getline(fd, info)) { // Pagrindinis nuskaitymas
         std::istringstream reading(info);
 
-        stud.setName(reading);
+        stud.Human::setName(reading);
         compareStrings(maxString, stud.getName());
 
-        stud.setSurname(reading);
+        stud.Human::setSurname(reading);
         compareStrings(maxString, stud.getSurname());
 
         // Klaidos žinutė
@@ -398,13 +399,9 @@ void readFromFile(container students, container vargsiukai, const string& fileNa
         stud.setExamFromGrades();
 
         students.push_back(stud); //emplace_back
-//        Student *studentPtr = &students.back();
-//        (*studentPtr).name = stud.name;
-//        (*studentPtr).name = stud.surname;
-//        (*studentPtr).galutinis = stud.galutinis;
 
 //        students.push_back(stud); // ŠITIE VARIANTAI NEVEIKIA SU STD::LIST KONTEINERIU. NEĮRAŠO Į KONTEINERĮ NIEKO
-//        students.insert(students.end(), stud);
+//        students.insert(students.end(), 1, stud);
         stud = {};
     }
     fd.close();
@@ -448,11 +445,11 @@ void readFromUser(const int numberOfStudents, vector<Student>& students) {
         students.push_back(Student());
 
         cout << "Įveskite studento vardą: ";
-        students[i].setName(cin);
+        students[i].Human::setName(cin);
         compareStrings(maxString, students[i].getName()); // Tikrinama įvestis, ieškomas ilgiausias žodis
 
         cout << "Įveskite studento pavardę: ";
-        students[i].setSurname(cin);
+        students[i].Human::setSurname(cin);
         compareStrings(maxString, students[i].getSurname());
 
 // Ar reikia generuoti studentui pažymius

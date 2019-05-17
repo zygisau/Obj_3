@@ -39,7 +39,7 @@ void containerTest();
 void containerTestBadStrat();
 
 template < typename container >
-void readFromFile(container students, container vargsiukai, const string& fileName, bool strat1);
+void readFromFile(container &students, container &vargsiukai, const string& fileName, bool strat1);
 void readFromUser(const int numberOfStudents, vector<Student>& students);
 
 #endif
