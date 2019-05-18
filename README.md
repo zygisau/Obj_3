@@ -168,15 +168,31 @@ Paleisti programą galima keliais būdais.
 - `git clone https://github.com/zygisau/Duomenu-apdorojimas.git` <-- kitu atveju  
 - `cd Duomenu-apdorojimas`  
 - Jei naudojate CMAKE, naudoti reikia CMakeLists.txt failą.
-Yra du *executables*:
-  - Duomenu_apdorojimas <-- pasirinkite, jei norite paleisti programą, kuri naudoja konteinerius
-  - Duomenu_apdorojimas_masyvai <-- pasirinkite, jei norite paleisti programą, kuri naudoja dinaminį masyvą
+Yra du failai skirtingose direktorijose su skirtingais project pavadinimais:
+  
+  - Duomenu_apdorojimas <-- pasirinkite, jei norite paleisti programą, kuri naudoja konteinerius. `(pagrindinėje direktorijoje)`
+  - Duomenu_apdorojimas_masyvai <-- pasirinkite, jei norite paleisti programą, kuri naudoja dinaminį masyvą `(./obj_masyvai/CMakeLists.txt)`
   
   
 ## Versijų istorija (changelog)  
 
+### [v2.0](https://github.com/zygisau/Obj_3/releases/tag/v2.0) - (2019-05-19)  
 
-### [v1.5](https://github.com/zygisau/Obj_3/releases/tag/v1.5) - (2019-05-05)  
+**Koreguota**  
+
+- Perstruktūrizuota programa
+
+**Pridėta** 
+
+- Sukurtas doxyfile, su kuriuo galima generuoti dokumentaciją.
+- Taip pat iš sugeneruoto latex folderio, sukurtas dokumentacijos PDF formatas
+- Sukurti du pavyzdiniai testai
+
+> Neveikia std::list::push_back(), ties antra strategija, dėl to šioje versijoje list realizacija yra užkomentuota. Pagal [cplusplus.com](http://www.cplusplus.com/), "If [allocator_traits::construct](http://www.cplusplus.com/allocator_traits::construct) is not supported with *val* as argument, it causes *undefined behavior*.". Tai nėra logiška, nes tipai yra tokie patys (Student klasės), tačiau vienintelė galimybė paaiškint realiai vykstantį *undefined behavior*.
+
+### [v1.5](https://github.com/zygisau/Obj_3/releases/tag/v1.5) - (2019-05-05)
+
+ **TIES STD::LIST META SEGFAULT** (GALIMAI IR KITOSE VERSIJOSE SU KLASĖM)
 
 **Koreguota**  
 
@@ -330,4 +346,4 @@ Yra du *executables*:
  - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.  
  - Sukurtas makefile.  
 
-[version-badge]: https://img.shields.io/badge/version-1.2-yellow.svg
+[version-badge]: https://img.shields.io/badge/version-2.0-yellow.svg
