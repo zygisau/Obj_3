@@ -98,7 +98,7 @@
 // FIXME: There are other ways to get the time on
 //   Windows, like GetTickCount() or GetSystemTimeAsFileTime().  MinGW
 //   supports these.  consider using them instead.
-#  define GTEST_HAS_GETTIMEOFDAY_ 1
+#  define GTEST_HAS_GETTIMEOFDAY_ 0
 #  include <sys/time.h>  // NOLINT
 # endif  // GTEST_OS_WINDOWS_MINGW
 
@@ -883,7 +883,10 @@ TimeInMillis GetTimeInMillis() {
   return static_cast<TimeInMillis>(now.time) * 1000 + now.millitm;
 #elif GTEST_HAS_GETTIMEOFDAY_
   struct timeval now;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
   gettimeofday(&now, NULL);
+#pragma clang diagnostic pop
   return static_cast<TimeInMillis>(now.tv_sec) * 1000 + now.tv_usec / 1000;
 #else
 # error "Don't know how to get the current time on your system."
@@ -6005,3 +6008,4 @@ ScopedTrace::~ScopedTrace()
 }
 
 }  // namespace testing
+

@@ -69,7 +69,7 @@ float Student::setMedian() {
     } else if (size % 2 == 0) {
         median = (float)(grades[middleIndex] + grades[--middleIndex])/2;
     } else {
-        median = grades[--middleIndex];
+        median = grades[middleIndex];
     }
 
     return median;

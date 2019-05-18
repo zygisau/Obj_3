@@ -138,7 +138,7 @@ void filterStudents (vector<Student>& students, vector<Student>& vargsiukai) {
     auto bound = std::stable_partition(students.begin(), students.end(),
                                    [&](const auto& x) { return !(x.isVargsiukas()); });
 
-    vargsiukai.insert(vargsiukai.end(), bound,
+    vargsiukai.insert(vargsiukai.begin(), bound,
                   students.end());
 
     students.erase(bound, students.end());
