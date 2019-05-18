@@ -36,6 +36,7 @@ public:
     int getExam() const { return exam; }
     // setters
     void setExam( istream & stream );
+    void setExam( const int& sk ) { exam = sk; }
     void setName(const string & name) { this->name = name; }
     void setSurname(const string & surname) { this->surname = surname; }
     void setVargsiukas(const bool & vargsiukasState) { vargsiukas = vargsiukasState; }
@@ -50,6 +51,7 @@ public:
 
 // Per konsolę įrašomi pažymiai
     void setGrades();
+    void setGrades(std::initializer_list<int> list) { grades = list; }
 
 // Apskaičiuoja vidurkį
     float setAverage();

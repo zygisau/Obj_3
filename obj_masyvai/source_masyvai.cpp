@@ -5,7 +5,7 @@
 #include <cmath>
 #include <random>
 #include <ctime>
-#include "../classes/Student/Student.h"
+#include "../src/classes/Student/Student.h"
 
 using std::cout; using std::cin; using std::endl; using std::string; using std::setw; using std::left; using std::setprecision; using std::fixed;
 using std::sort; using std::stoi;
@@ -43,10 +43,10 @@ int main() {
    Student *stud = new Student[numberOfStudents];
    for (int i=0; i<numberOfStudents; i++) { // Įrašinėja visų studentų duomenis
        cout << "Įveskite studento vardą: ";
-       stud[i].setName(cin);
+       stud[i].Human::setName(cin);
        compareStrings(maxString, stud[i].getName()); // Tikrinama įvestis, ieškomas ilgiausias žodis
        cout << "Įveskite studento pavardę: ";
-       stud[i].setSurname(cin);
+       stud[i].Human::setSurname(cin);
        compareStrings(maxString, stud[i].getSurname());
        cout << "Ar norite, jog pažymiai būtų sugeneruoti už Jus? (1 - taip, 0 - ne) ";
        cin >> isNeededToGenerate;
@@ -87,6 +87,8 @@ int main() {
    cout << endl;
    // Spausdinimas
    printResult(choose, maxString, numberOfStudents, stud);
+
+   cin.clear();
    cout << "Press enter to continue ..." << endl;
    cin.get();
    return 0;
