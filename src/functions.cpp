@@ -300,22 +300,21 @@ void containerTest() {
 
     cout << endl;
 
+    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
+    t.reset();
+    list<Student> studentsList;
+    list<Student> vargsiukaiList;
+    speedTest(studentsList, vargsiukaiList, true);
+    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
+
+    cout << endl;
+
     cout << "Pradedamas darbas naudojant deque konteinerį..." << endl;
     t.reset();
     deque<Student> studentsDeque;
     deque<Student> vargsiukaiDeque;
     speedTest(studentsDeque, vargsiukaiDeque, false);
     cout << "Darbas su STD::DEQUE konteineriu užtruko: " << t.elapsed() << " s" << endl;
-
-    cout << endl;
-
-    // FIXME: List is not pushing its values
-//    cout << "Pradedamas darbas naudojant list konteinerį..." << endl;
-//    t.reset();
-//    list<Student> studentsList = {};
-//    list<Student> vargsiukaiList = {};
-//    speedTest(studentsList, vargsiukaiList, false);
-//    cout << "Darbas su STD::LIST konteineriu užtruko: " << t.elapsed() << " s" << endl;
 }
 
 // Pirmoji strategija
@@ -397,18 +396,13 @@ void readFromFile(container &students, container &vargsiukai, const string& file
         stud.checkGradesCount();
 
         stud.setExamFromGrades();
-
-        students.push_back(stud); //emplace_back
-
-//        students.push_back(stud); // ŠITIE VARIANTAI NEVEIKIA SU STD::LIST KONTEINERIU. NEĮRAŠO Į KONTEINERĮ NIEKO
-//        students.insert(students.end(), 1, stud);
+        students.push_back(stud);
         stud = {};
     }
     fd.close();
     cout << "Nuskaitymas iš failo truko: " << timer.elapsed() << " s" << endl;
 
     timer.reset();
-
     sortStudents(students);
 
     if (strat1) {

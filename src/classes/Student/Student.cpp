@@ -157,7 +157,14 @@ void Student::checkGradesCount() {
 
 void Student::setExamFromGrades() {
     exam = grades.back();
+//    for (int i=0; i<grades.size(); i++) cout << grades[i] << "   ";
+//    cout << endl << grades.size() << " --- ";
     grades.pop_back();
+    grades.pop_back();
+//    cout << grades.size() << endl;
+//    cout << endl;
+//    for (int i=0; i<grades.size(); i++) cout << grades[i] << "   ";
+//    cout << "              " << exam << endl;
     setGalutinis();
     grades.clear();
 }

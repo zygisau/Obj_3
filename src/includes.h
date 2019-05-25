@@ -8,7 +8,8 @@
 #include <cmath>
 #include <vector>
 using std::vector;
-//#include "../../Vector/vector.h"
+// NORINT NAUDOT SAVO VECTOR, REIKIA JĮ PRIJUNGTI PVZ:
+//#include "../../Vector/NewVector/vector.h"
 #include <random>
 #include <ctime>
 #include <fstream>

@@ -53,6 +53,8 @@ void menu() {
 // Sukuriami pagrindiniai kintamieji
     vector<Student> students;
     vector<Student> vargsiukai;
+    students.reserve(100000);
+    vargsiukai.reserve(100000);
 
 // Ar bus pažymiai vedami ranka?
     cout << "Įvedinėsite duomenis ranka ar iš failo? (1 - ranka, 0 - iš failo)";
@@ -90,7 +92,7 @@ void menu() {
 
 // Jei nenorima atlikti jokios analiazės, tiesiog imamas kursiokai.txt failas ir daromi su juo skaičivimai.
             Timer clock;
-            readFromFile(students, vargsiukai, "kursiokai.txt", false);
+            readFromFile(students, vargsiukai, "kursiokai10.txt", false);
             cout << "Darbas su vektoriaus konteneiriu truko " << clock.elapsed() << " s" << endl;
         }
     }
