@@ -176,6 +176,13 @@ Yra du failai skirtingose direktorijose su skirtingais project pavadinimais:
   
 ## Versijų istorija (changelog)  
 
+### [v2.1](https://github.com/zygisau/Obj_3/releases/tag/v2.1) - (2019-05-19)  
+
+**Koreguota**  
+
+- Pakoreguotas projektas, jog veiktų su "custom" vektoriumi.
+- Rastas būdas, kaip laikinai pašalint problemą su std::list::push_back() funkcija
+
 ### [v2.0](https://github.com/zygisau/Obj_3/releases/tag/v2.0) - (2019-05-19)  
 
 **Koreguota**  
@@ -346,4 +353,4 @@ Yra du failai skirtingose direktorijose su skirtingais project pavadinimais:
  - Sukurtos dvi programos. Viena veikia, remiantis C masyvais, kita - vector.  
  - Sukurtas makefile.  
 
-[version-badge]: https://img.shields.io/badge/version-2.0-yellow.svg
+[version-badge]: https://img.shields.io/badge/version-2.1-yellow.svg
